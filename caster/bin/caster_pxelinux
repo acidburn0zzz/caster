@@ -1,0 +1,17 @@
+DEFAULT menu.c32
+PROMPT 0
+MENU WIDTH 80
+MENU MARGIN 10
+MENU PASSWORDMARGIN 3
+MENU ROWS 12
+MENU TABMSGROW 18
+MENU CMDLINEROW 3
+MENU ENDROW 24
+MENU PASSWORDROW 11
+MENU PASSPROMPT Enter Password:
+MENU TIMEOUTROW 20
+MENU TITLE Select system:
+
+label linux shell
+	kernel vmlinuz
+	append initrd=caster.img ip=dhcp init=/bin/sh root=/dev/ram

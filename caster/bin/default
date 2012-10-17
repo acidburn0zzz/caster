@@ -1,0 +1,6 @@
+CFG=/etc/caster.cfg
+LOGS=/var/log/caster
+RUN=/var/run/caster
+PXECFG=/var/lib/tftp/pxelinux.cfg
+IMAGES=/var/lib/caster
+DEFAULT_PXE=/etc/default/caster_pxelinux

@@ -1,0 +1,18 @@
+[base]
+featuresets:
+# vserver
+flavours: alpha-generic alpha-smp alpha-legacy
+kernel-arch: alpha
+
+[image]
+suggests: aboot, fdutils
+type: kernel-package
+
+[alpha-generic_base]
+class: Alpha
+
+[alpha-smp_base]
+class: Alpha SMP
+
+[alpha-legacy_base]
+class: Alpha Legacy

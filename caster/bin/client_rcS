@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# mount important directories
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mkdir /dev/pts
+mount -t devpts devpts /dev/pts
+
+# disable kernel messages
+echo 0 > /proc/sys/kernel/printk
+
+# create devices
+mdev -s
+touch /etc/fstab
+

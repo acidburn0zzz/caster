@@ -1,0 +1,126 @@
+##
+## file: arch/x86/Kconfig
+##
+# CONFIG_SMP is not set
+CONFIG_X86_UP_APIC=y
+CONFIG_X86_UP_IOAPIC=y
+# CONFIG_X86_MCE is not set
+## choice: High Memory Support
+CONFIG_NOHIGHMEM=y
+# CONFIG_HIGHMEM4G is not set
+## end choice
+CONFIG_MATH_EMULATION=y
+CONFIG_EISA=y
+CONFIG_MCA=y
+CONFIG_OLPC=y
+
+##
+## file: arch/x86/Kconfig.cpu
+##
+## choice: Processor family
+# CONFIG_M386 is not set
+CONFIG_M486=y
+# CONFIG_M686 is not set
+# CONFIG_MK7 is not set
+## end choice
+CONFIG_X86_GENERIC=y
+CONFIG_X86_PPRO_FENCE=y
+
+##
+## file: drivers/char/Kconfig
+##
+CONFIG_DIGIEPCA=m
+CONFIG_MOXA_INTELLIO=m
+CONFIG_RIO=m
+CONFIG_RIO_OLDPCI=y
+CONFIG_STALLION=m
+CONFIG_ISTALLION=m
+
+##
+## file: drivers/cpufreq/Kconfig
+##
+# CONFIG_CPU_FREQ_STAT_DETAILS is not set
+
+##
+## file: drivers/eisa/Kconfig
+##
+CONFIG_EISA_VLB_PRIMING=y
+CONFIG_EISA_PCI_EISA=y
+CONFIG_EISA_VIRTUAL_ROOT=y
+CONFIG_EISA_NAMES=y
+
+##
+## file: drivers/i2c/busses/Kconfig
+##
+CONFIG_I2C_ELEKTOR=m
+CONFIG_I2C_STUB=m
+
+##
+## file: drivers/isdn/i4l/Kconfig
+##
+CONFIG_ISDN_DRV_LOOP=m
+
+##
+## file: drivers/mca/Kconfig
+##
+CONFIG_MCA_LEGACY=y
+# CONFIG_MCA_PROC_FS is not set
+
+##
+## file: drivers/mtd/chips/Kconfig
+##
+# CONFIG_MTD_XIP is not set
+
+##
+## file: drivers/net/Kconfig
+##
+CONFIG_ELMC=m
+CONFIG_ELMC_II=m
+CONFIG_ULTRAMCA=m
+CONFIG_ULTRA32=m
+CONFIG_NI5010=m
+CONFIG_NE2_MCA=m
+CONFIG_IBMLANA=m
+CONFIG_LNE390=m
+CONFIG_NE3210=m
+CONFIG_ES3210=m
+
+##
+## file: drivers/net/hamradio/Kconfig
+##
+CONFIG_DMASCC=m
+
+##
+## file: drivers/net/tokenring/Kconfig
+##
+CONFIG_MADGEMC=m
+
+##
+## file: drivers/pci/hotplug/Kconfig
+##
+CONFIG_HOTPLUG_PCI_COMPAQ_NVRAM=y
+
+##
+## file: drivers/power/Kconfig
+##
+CONFIG_BATTERY_OLPC=m
+
+##
+## file: drivers/scsi/Kconfig
+##
+CONFIG_SCSI_FD_MCS=m
+CONFIG_SCSI_IBMMCA=m
+CONFIG_IBMMCA_SCSI_ORDER_STANDARD=y
+# CONFIG_IBMMCA_SCSI_DEV_RESET is not set
+CONFIG_SCSI_NCR_D700=m
+CONFIG_SCSI_NCR_Q720=m
+CONFIG_SCSI_NCR53C8XX_DEFAULT_TAGS=8
+CONFIG_SCSI_NCR53C8XX_MAX_TAGS=4
+CONFIG_SCSI_NCR53C8XX_SYNC=5
+CONFIG_SCSI_SIM710=m
+
+##
+## file: drivers/video/geode/Kconfig
+##
+CONFIG_FB_GEODE_LX=y
+

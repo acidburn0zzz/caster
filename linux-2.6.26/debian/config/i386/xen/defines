@@ -1,0 +1,24 @@
+[base]
+flavours:
+ 686
+
+[image]
+initramfs-generators: initramfs-tools
+suggests: grub
+type: plain-xen
+
+[xen]
+flavours:
+ i386
+ amd64
+
+[686_base]
+class: i686
+longclass: i686 and compatible
+
+[686_image]
+configs:
+ i386/config.686-bigmem
+ i386/xen/config
+recommends: libc6-xen
+

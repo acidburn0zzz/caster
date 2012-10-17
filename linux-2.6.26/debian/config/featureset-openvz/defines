@@ -1,0 +1,6 @@
+[image]
+depends: vzctl
+desc-long-part-openvz: This kernel includes support for OpenVZ container-based virtualization.
+desc-parts: openvz
+desc-short-part-openvz: OpenVZ support
+

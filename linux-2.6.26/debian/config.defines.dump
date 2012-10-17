@@ -1,0 +1,539 @@
+[('abi',)]
+abiname: '2'
+
+[('abi', 'm68k')]
+ignore-changes: ['*']
+
+[('base',)]
+arches: ['alpha', 'amd64', 'arm', 'armel', 'hppa', 'i386', 'ia64', 'm68k', 'mips', 'mipsel', 'powerpc', 's390', 'sparc']
+featuresets: ['none', 'openvz', 'vserver', 'xen']
+compiler: 'gcc-4.1'
+
+[('base', None, 'openvz')]
+enabled: True
+
+[('base', None, 'vserver')]
+enabled: True
+
+[('base', 'alpha')]
+kernel-arch: 'alpha'
+featuresets: ['none']
+
+[('base', 'alpha', None, 'alpha-generic')]
+class: 'Alpha'
+
+[('base', 'alpha', None, 'alpha-legacy')]
+class: 'Alpha Legacy'
+
+[('base', 'alpha', None, 'alpha-smp')]
+class: 'Alpha SMP'
+
+[('base', 'alpha', 'none')]
+implicit-flavour: True
+flavours: ['alpha-generic', 'alpha-smp', 'alpha-legacy']
+
+[('base', 'amd64')]
+kernel-arch: 'x86'
+featuresets: ['none', 'openvz', 'vserver', 'xen']
+
+[('base', 'amd64', None, 'amd64')]
+longclass: 'all 64bit single- and multiprocessor AMD and Intel'
+class: 'AMD64'
+
+[('base', 'amd64', 'none')]
+implicit-flavour: True
+flavours: ['amd64']
+
+[('base', 'amd64', 'openvz')]
+flavours: ['amd64']
+
+[('base', 'amd64', 'vserver')]
+flavours: ['amd64']
+
+[('base', 'amd64', 'xen')]
+flavours: ['amd64']
+
+[('base', 'arm')]
+kernel-arch: 'arm'
+featuresets: ['none']
+
+[('base', 'arm', None, 'footbridge')]
+longclass: 'Footbridge based (CATS, Netwinder)'
+class: 'Footbridge'
+
+[('base', 'arm', None, 'iop32x')]
+longclass: 'IOP32x based (Thecus N2100, etc)'
+class: 'IOP32x'
+
+[('base', 'arm', None, 'ixp4xx')]
+longclass: 'IXP4xx based (Linksys NSLU2, etc)'
+class: 'IXP4xx'
+
+[('base', 'arm', None, 'orion5x')]
+longclass: 'Orion 5181, 5182 and 5281 based (QNAP TS-109/TS-209, etc)'
+class: 'Orion'
+
+[('base', 'arm', None, 'versatile')]
+longclass: 'Versatile (PB, AB, Qemu)'
+class: 'Versatile'
+
+[('base', 'arm', 'none')]
+implicit-flavour: True
+flavours: ['footbridge', 'iop32x', 'ixp4xx', 'orion5x']
+
+[('base', 'armel')]
+kernel-arch: 'arm'
+featuresets: ['none']
+
+[('base', 'armel', None, 'iop32x')]
+longclass: 'IOP32x based (Thecus N2100, etc)'
+class: 'IOP32x'
+
+[('base', 'armel', None, 'ixp4xx')]
+longclass: 'IXP4xx based (Linksys NSLU2, etc)'
+class: 'IXP4xx'
+
+[('base', 'armel', None, 'orion5x')]
+longclass: 'Orion 5181, 5182 and 5281 based (QNAP TS-109/TS-209, etc)'
+class: 'Orion'
+
+[('base', 'armel', None, 'versatile')]
+longclass: 'Versatile (PB, AB, Qemu)'
+class: 'Versatile'
+
+[('base', 'armel', 'none')]
+implicit-flavour: True
+flavours: ['iop32x', 'ixp4xx', 'orion5x', 'versatile']
+
+[('base', 'hppa')]
+kernel-arch: 'parisc'
+featuresets: ['none']
+
+[('base', 'hppa', None, 'parisc')]
+class: '32-bit PA-RISC'
+
+[('base', 'hppa', None, 'parisc-smp')]
+class: 'multiprocessor 32-bit PA-RISC'
+
+[('base', 'hppa', None, 'parisc64')]
+class: '64-bit PA-RISC'
+cflags: '-fno-cse-follow-jumps'
+override-host-type: 'hppa64-linux-gnu'
+
+[('base', 'hppa', None, 'parisc64-smp')]
+class: 'multiprocessor 64-bit PA-RISC'
+cflags: '-fno-cse-follow-jumps'
+override-host-type: 'hppa64-linux-gnu'
+
+[('base', 'hppa', 'none')]
+implicit-flavour: True
+flavours: ['parisc', 'parisc-smp', 'parisc64', 'parisc64-smp']
+
+[('base', 'i386')]
+kernel-arch: 'x86'
+featuresets: ['none', 'openvz', 'vserver', 'xen']
+
+[('base', 'i386', None, '486')]
+longclass: 'x86 and compatible'
+class: 'x86'
+
+[('base', 'i386', None, '686')]
+longclass: 'Pentium Pro/Celeron/Pentium II/Pentium III/Pentium 4'
+class: 'PPro/Celeron/PII/PIII/P4'
+
+[('base', 'i386', None, '686-bigmem')]
+longclass: 'Pentium Pro/Celeron/Pentium II/Pentium III/Pentium 4 with 4-64G RAM'
+class: 'PPro/Celeron/PII/PIII/P4'
+
+[('base', 'i386', None, 'amd64')]
+longclass: 'all 64bit single- and multiprocessor AMD and Intel'
+class: 'AMD64'
+
+[('base', 'i386', 'none')]
+implicit-flavour: True
+flavours: ['486', '686', '686-bigmem', 'amd64']
+
+[('base', 'i386', 'openvz')]
+flavours: ['686']
+
+[('base', 'i386', 'vserver')]
+flavours: ['686', '686-bigmem']
+
+[('base', 'i386', 'xen')]
+flavours: ['686']
+
+[('base', 'i386', 'xen', '686')]
+longclass: 'i686 and compatible'
+class: 'i686'
+
+[('base', 'ia64')]
+kernel-arch: 'ia64'
+featuresets: ['none', 'vserver']
+
+[('base', 'ia64', None, 'itanium')]
+class: 'Itanium'
+
+[('base', 'ia64', None, 'mckinley')]
+class: 'Itanium II'
+
+[('base', 'ia64', 'none')]
+implicit-flavour: True
+flavours: ['itanium', 'mckinley']
+
+[('base', 'ia64', 'vserver')]
+flavours: ['itanium', 'mckinley']
+
+[('base', 'm68k')]
+kernel-arch: 'm68k'
+featuresets: ['none']
+
+[('base', 'm68k', None, 'amiga')]
+class: 'Amiga'
+
+[('base', 'm68k', None, 'atari')]
+class: 'Atari'
+
+[('base', 'm68k', None, 'bvme6000')]
+class: 'BVM BVME4000 and BVME6000'
+
+[('base', 'm68k', None, 'hp')]
+class: 'HP'
+
+[('base', 'm68k', None, 'mac')]
+class: 'Macintosh'
+
+[('base', 'm68k', None, 'mvme147')]
+class: 'Motorola MVME147'
+
+[('base', 'm68k', None, 'mvme16x')]
+class: 'Motorola MVME162/6/7, MVME172/7'
+
+[('base', 'm68k', None, 'q40')]
+class: 'Q40 and Q60'
+
+[('base', 'm68k', None, 'sun3')]
+class: 'sun3'
+
+[('base', 'm68k', 'none')]
+implicit-flavour: True
+flavours: ['amiga', 'atari', 'bvme6000', 'mac', 'mvme147', 'mvme16x']
+
+[('base', 'mips')]
+kernel-arch: 'mips'
+featuresets: ['none']
+
+[('base', 'mips', None, '4kc-malta')]
+longclass: 'MIPS Malta board'
+class: 'MIPS Malta'
+
+[('base', 'mips', None, '5kc-malta')]
+longclass: 'MIPS Malta board (64-bit)'
+class: 'MIPS Malta (64-bit)'
+
+[('base', 'mips', None, 'r4k-ip22')]
+longclass: 'SGI IP22 (Indy, Indigo2)'
+class: 'SGI IP22'
+
+[('base', 'mips', None, 'r5k-ip32')]
+longclass: 'SGI IP32 (O2)'
+class: 'SGI IP32'
+
+[('base', 'mips', None, 'sb1-bcm91250a')]
+longclass: 'Broadcom BCM91250A (aka SWARM)'
+class: 'BCM91250A'
+
+[('base', 'mips', None, 'sb1a-bcm91480b')]
+longclass: 'Broadcom BCM91480B (aka BigSur)'
+class: 'BCM91480B'
+
+[('base', 'mips', 'none')]
+implicit-flavour: True
+flavours: ['r4k-ip22', 'r5k-ip32', 'sb1-bcm91250a', 'sb1a-bcm91480b', '4kc-malta', '5kc-malta']
+
+[('base', 'mipsel')]
+kernel-arch: 'mips'
+featuresets: ['none']
+
+[('base', 'mipsel', None, '4kc-malta')]
+longclass: 'MIPS Malta board'
+class: 'MIPS Malta'
+
+[('base', 'mipsel', None, '5kc-malta')]
+longclass: 'MIPS Malta board (64-bit)'
+class: 'MIPS Malta (64-bit)'
+
+[('base', 'mipsel', None, 'r5k-cobalt')]
+longclass: 'Cobalt (Qube, RaQ, Qube2, RaQ2)'
+class: 'Cobalt'
+
+[('base', 'mipsel', None, 'sb1-bcm91250a')]
+longclass: 'Broadcom BCM91250A (aka SWARM)'
+class: 'BCM91250A'
+
+[('base', 'mipsel', None, 'sb1a-bcm91480b')]
+longclass: 'Broadcom BCM91480B (aka BigSur)'
+class: 'BCM91480B'
+
+[('base', 'mipsel', 'none')]
+implicit-flavour: True
+flavours: ['r5k-cobalt', 'sb1-bcm91250a', 'sb1a-bcm91480b', '4kc-malta', '5kc-malta']
+
+[('base', 'powerpc')]
+kernel-arch: 'powerpc'
+featuresets: ['none', 'vserver']
+
+[('base', 'powerpc', None, 'apus')]
+kernel-arch: 'ppc'
+
+[('base', 'powerpc', None, 'powerpc')]
+class: 'uniprocessor 32-bit PowerPC'
+
+[('base', 'powerpc', None, 'powerpc-miboot')]
+class: '32-bit PowerPC for miboot floppy'
+
+[('base', 'powerpc', None, 'powerpc-smp')]
+class: 'multiprocessor 32-bit PowerPC'
+
+[('base', 'powerpc', None, 'powerpc64')]
+class: '64-bit PowerPC'
+
+[('base', 'powerpc', None, 'prep')]
+kernel-arch: 'ppc'
+class: 'PReP PowerPC'
+
+[('base', 'powerpc', 'none')]
+implicit-flavour: True
+flavours: ['powerpc', 'powerpc-smp', 'powerpc64']
+
+[('base', 'powerpc', 'vserver')]
+flavours: ['powerpc', 'powerpc64']
+
+[('base', 's390')]
+kernel-arch: 's390'
+featuresets: ['none', 'vserver']
+
+[('base', 's390', None, 's390')]
+class: 'IBM S/390'
+
+[('base', 's390', None, 's390-tape')]
+modules: False
+class: 'IBM S/390'
+
+[('base', 's390', None, 's390x')]
+class: 'IBM zSeries'
+
+[('base', 's390', 'none')]
+implicit-flavour: True
+flavours: ['s390', 's390-tape', 's390x']
+
+[('base', 's390', 'vserver')]
+flavours: ['s390x']
+
+[('base', 'sparc')]
+kernel-arch: 'sparc64'
+kernel-header-dirs: 'sparc sparc64'
+featuresets: ['none', 'vserver']
+
+[('base', 'sparc', None, 'sparc32')]
+kpkg-subarch: 'sparc'
+kernel-arch: 'sparc'
+class: 'uniprocessor sparc32 (sun4m)'
+
+[('base', 'sparc', None, 'sparc64')]
+kpkg-subarch: 'sparc64'
+class: 'uniprocessor 64-bit UltraSPARC'
+
+[('base', 'sparc', None, 'sparc64-smp')]
+kpkg-subarch: 'sparc64'
+class: 'multiprocessor 64-bit UltraSPARC'
+
+[('base', 'sparc', 'none')]
+implicit-flavour: True
+flavours: ['sparc64', 'sparc64-smp']
+
+[('base', 'sparc', 'vserver')]
+flavours: ['sparc64']
+
+[('commands-image-initramfs-generators',)]
+yaird: 'mkinitrd.yaird'
+initramfs-tools: 'mkinitramfs-kpkg'
+
+[('image',)]
+desc-long-part-xen: 'This kernel also runs on a Xen hypervisor.\nIt supports only unpriviledged (domU) operation.'
+initramfs-generators: ['initramfs-tools', 'yaird', 'initramfs-fallback']
+type: 'plain'
+
+[('image', None, 'openvz')]
+desc-parts: ['openvz']
+depends: 'vzctl'
+desc-short-part-openvz: 'OpenVZ support'
+desc-long-part-openvz: 'This kernel includes support for OpenVZ container-based virtualization.'
+
+[('image', None, 'vserver')]
+desc-parts: ['vserver']
+desc-long-part-vserver: 'This kernel includes support for Linux-VServer virtualization.'
+recommends: 'util-vserver'
+desc-short-part-vserver: 'Linux-VServer support'
+
+[('image', None, 'xen')]
+desc-parts: ['xenold']
+desc-short-part-xenold: 'oldstyle Xen support'
+desc-long-part-xenold: 'This kernel only runs on a Xen hypervisor.\nIt supports both priviledged (dom0) and unpriviledged (domU) operation.'
+
+[('image', 'alpha')]
+suggests: 'aboot, fdutils'
+type: 'kernel-package'
+
+[('image', 'amd64')]
+suggests: 'grub | lilo'
+
+[('image', 'amd64', 'xen')]
+suggests: 'grub'
+initramfs-generators: ['initramfs-tools']
+type: 'plain-xen'
+
+[('image', 'arm')]
+suggests: 'fdutils'
+type: 'kernel-package'
+
+[('image', 'arm', None, 'footbridge')]
+suggests: 'nwutil'
+
+[('image', 'arm', None, 'orion5x')]
+recommends: 'uboot-mkimage'
+
+[('image', 'armel')]
+suggests: 'fdutils'
+type: 'kernel-package'
+
+[('image', 'armel', None, 'iop32x')]
+configs: ['arm/config.iop32x']
+
+[('image', 'armel', None, 'ixp4xx')]
+configs: ['arm/config.ixp4xx']
+
+[('image', 'armel', None, 'orion5x')]
+configs: ['arm/config.orion5x']
+recommends: 'uboot-mkimage'
+
+[('image', 'armel', None, 'versatile')]
+configs: ['arm/config.versatile']
+
+[('image', 'hppa')]
+suggests: 'palo'
+type: 'kernel-package'
+
+[('image', 'i386')]
+suggests: 'grub | lilo'
+
+[('image', 'i386', None, '686')]
+recommends: 'libc6-i686'
+
+[('image', 'i386', None, '686-bigmem')]
+desc-parts: ['xen']
+recommends: 'libc6-i686'
+
+[('image', 'i386', None, 'amd64')]
+configs: ['amd64/config', 'amd64/config.amd64']
+recommends: 'libc6-i686'
+
+[('image', 'i386', 'openvz', '686')]
+desc-parts: ['xen']
+configs: ['i386/config.686-bigmem']
+
+[('image', 'i386', 'vserver')]
+recommends: 'util-vserver, libc6-i686'
+
+[('image', 'i386', 'xen')]
+suggests: 'grub'
+initramfs-generators: ['initramfs-tools']
+type: 'plain-xen'
+
+[('image', 'i386', 'xen', '686')]
+configs: ['i386/config.686-bigmem', 'i386/xen/config']
+recommends: 'libc6-xen'
+
+[('image', 'ia64')]
+suggests: 'elilo, fdutils'
+type: 'kernel-package'
+
+[('image', 'm68k')]
+suggests: 'vmelilo, fdutils'
+initramfs: False
+
+[('image', 'mips')]
+type: 'kernel-package'
+initramfs: False
+
+[('image', 'mipsel')]
+type: 'kernel-package'
+initramfs: False
+
+[('image', 'powerpc')]
+suggests: 'mkvmlinuz'
+
+[('image', 'powerpc', None, 'powerpc-smp')]
+configs: ['powerpc/config.powerpc', 'powerpc/config.powerpc-smp']
+
+[('image', 'powerpc', 'vserver', 'powerpc')]
+configs: ['powerpc/config.powerpc-smp']
+
+[('image', 'powerpc', 'vserver', 'powerpc64')]
+configs: ['powerpc/config.powerpc64']
+
+[('image', 's390')]
+desc-short-part-tape: 'IPL from tape'
+desc-long-part-tape: 'This kernel has support to IPL (boot) from a tape.'
+desc-long-part-reader: 'This kernel has support to IPL (boot) from a VM reader or DASD device.'
+suggests: 's390-tools'
+
+[('image', 's390', None, 's390')]
+desc-parts: ['reader']
+
+[('image', 's390', None, 's390-tape')]
+desc-parts: ['tape']
+override-localversion: 's390'
+type: 'plain-s390-tape'
+initramfs: False
+
+[('image', 's390', None, 's390x')]
+desc-parts: ['reader']
+
+[('image', 'sparc')]
+suggests: 'silo, fdutils'
+type: 'kernel-package'
+
+[('image', 'sparc', None, 'sparc32')]
+image-postproc: 'sparc32-image-postproc'
+
+[('image', 'sparc', 'vserver')]
+recommends: 'util-vserver, libc6-sparc64'
+
+[('image', 'sparc', 'vserver', 'sparc64')]
+configs: ['sparc/config.sparc64-smp']
+
+[('relations',)]
+util-vserver: 'util-vserver (>= 0.30.215)'
+gcc-3.3: 'gcc-3.3'
+yaird: 'yaird (>= 0.0.13)'
+initramfs-fallback: 'linux-initramfs-tool'
+gcc-4.1: 'gcc-4.1'
+gcc-4.0: 'gcc-4.0'
+initramfs-tools: 'initramfs-tools (>= 0.55)'
+
+[('relations', 'hppa')]
+gcc-4.1: 'gcc-4.1, binutils-hppa64, gcc-4.1-hppa64'
+
+[('version',)]
+abiname: '-2'
+source: '2.6.26-15'
+
+[('xen',)]
+versions: ['3.2-1']
+
+[('xen', 'amd64', 'xen')]
+flavours: ['amd64']
+
+[('xen', 'i386', 'xen')]
+flavours: ['i386', 'amd64']
+

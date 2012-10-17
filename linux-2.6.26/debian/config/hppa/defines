@@ -1,0 +1,31 @@
+[base]
+flavours:
+ parisc
+ parisc-smp
+ parisc64
+ parisc64-smp
+kernel-arch: parisc
+
+[image]
+suggests: palo
+type: kernel-package
+
+[parisc_base]
+class: 32-bit PA-RISC
+
+[parisc-smp_base]
+class: multiprocessor 32-bit PA-RISC
+
+[parisc64_base]
+cflags: -fno-cse-follow-jumps
+class: 64-bit PA-RISC
+override-host-type: hppa64-linux-gnu
+
+[parisc64-smp_base]
+cflags: -fno-cse-follow-jumps
+class: multiprocessor 64-bit PA-RISC
+override-host-type: hppa64-linux-gnu
+
+[relations]
+gcc-4.1: gcc-4.1, binutils-hppa64, gcc-4.1-hppa64
+

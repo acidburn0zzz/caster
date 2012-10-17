@@ -1,0 +1,16 @@
+[base]
+featuresets:
+ openvz
+ vserver
+ xen
+flavours:
+ amd64
+kernel-arch: x86
+
+[image]
+suggests: grub | lilo
+
+[amd64_base]
+class: AMD64
+longclass: all 64bit single- and multiprocessor AMD and Intel
+

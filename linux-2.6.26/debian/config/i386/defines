@@ -1,0 +1,42 @@
+[base]
+featuresets:
+ openvz
+ vserver
+ xen
+flavours:
+ 486
+ 686
+ 686-bigmem
+ amd64
+kernel-arch: x86
+
+[image]
+suggests: grub | lilo
+
+[486_base]
+class: x86
+longclass: x86 and compatible
+
+[686_base]
+class: PPro/Celeron/PII/PIII/P4
+longclass: Pentium Pro/Celeron/Pentium II/Pentium III/Pentium 4
+
+[686_image]
+recommends: libc6-i686
+
+[686-bigmem_base]
+class: PPro/Celeron/PII/PIII/P4
+longclass: Pentium Pro/Celeron/Pentium II/Pentium III/Pentium 4 with 4-64G RAM
+
+[686-bigmem_image]
+desc-parts: xen
+recommends: libc6-i686
+
+[amd64_base]
+class: AMD64
+longclass: all 64bit single- and multiprocessor AMD and Intel
+
+[amd64_image]
+configs: amd64/config amd64/config.amd64
+recommends: libc6-i686
+

@@ -1,0 +1,1029 @@
+.NOTPARALLEL:
+binary-arch: binary-arch_alpha binary-arch_amd64 binary-arch_arm binary-arch_armel binary-arch_hppa binary-arch_i386 binary-arch_ia64 binary-arch_m68k binary-arch_mips binary-arch_mipsel binary-arch_powerpc binary-arch_s390 binary-arch_sparc
+binary-arch_alpha: binary-arch_alpha_none binary-arch_alpha_real
+binary-arch_alpha_none: binary-arch_alpha_none_alpha-generic binary-arch_alpha_none_alpha-legacy binary-arch_alpha_none_alpha-smp binary-arch_alpha_none_real
+binary-arch_alpha_none_alpha-generic: binary-arch_alpha_none_alpha-generic_real
+binary-arch_alpha_none_alpha-generic_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-generic' FLAVOUR='alpha-generic' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-generic' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-generic' ARCH='alpha' COMPILER='gcc-4.1'
+binary-arch_alpha_none_alpha-legacy: binary-arch_alpha_none_alpha-legacy_real
+binary-arch_alpha_none_alpha-legacy_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-legacy' FLAVOUR='alpha-legacy' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-legacy' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-legacy' ARCH='alpha' COMPILER='gcc-4.1'
+binary-arch_alpha_none_alpha-smp: binary-arch_alpha_none_alpha-smp_real
+binary-arch_alpha_none_alpha-smp_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-smp' FLAVOUR='alpha-smp' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-smp' ARCH='alpha' COMPILER='gcc-4.1'
+binary-arch_alpha_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='alpha' LIBC_DEV_ARCH='alpha'
+binary-arch_alpha_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='alpha'
+binary-arch_amd64: binary-arch_amd64_none binary-arch_amd64_openvz binary-arch_amd64_real binary-arch_amd64_vserver binary-arch_amd64_xen
+binary-arch_amd64_none: binary-arch_amd64_none_amd64 binary-arch_amd64_none_real
+binary-arch_amd64_none_amd64: binary-arch_amd64_none_amd64_real
+binary-arch_amd64_none_amd64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+binary-arch_amd64_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='amd64' LIBC_DEV_ARCH='x86'
+binary-arch_amd64_openvz: binary-arch_amd64_openvz_amd64 binary-arch_amd64_openvz_real
+binary-arch_amd64_openvz_amd64: binary-arch_amd64_openvz_amd64_real
+binary-arch_amd64_openvz_amd64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-openvz-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-openvz/config' LOCALVERSION_HEADERS='-openvz' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='openvz' TYPE='plain' LOCALVERSION='-openvz-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+binary-arch_amd64_openvz_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-openvz' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='openvz' ARCH='amd64' LIBC_DEV_ARCH='x86'
+binary-arch_amd64_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='amd64'
+binary-arch_amd64_vserver: binary-arch_amd64_vserver_amd64 binary-arch_amd64_vserver_real
+binary-arch_amd64_vserver_amd64: binary-arch_amd64_vserver_amd64_real
+binary-arch_amd64_vserver_amd64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+binary-arch_amd64_vserver_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='amd64' LIBC_DEV_ARCH='x86'
+binary-arch_amd64_xen: binary-arch_amd64_xen_amd64 binary-arch_amd64_xen_real
+binary-arch_amd64_xen_amd64: binary-arch_amd64_xen_amd64_real
+binary-arch_amd64_xen_amd64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-xen-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-xen/config debian/config/amd64/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+	$(MAKE) -f debian/rules.real install-dummy DH_OPTIONS='-pxen-linux-system-2.6.26-2-xen-amd64' MAJOR='2.6' LOCALVERSION_IMAGE='-xen-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-xen/config debian/config/amd64/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+binary-arch_amd64_xen_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-xen' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='xen' ARCH='amd64' LIBC_DEV_ARCH='x86'
+binary-arch_arm: binary-arch_arm_none binary-arch_arm_real
+binary-arch_arm_none: binary-arch_arm_none_footbridge binary-arch_arm_none_iop32x binary-arch_arm_none_ixp4xx binary-arch_arm_none_orion5x binary-arch_arm_none_real
+binary-arch_arm_none_footbridge: binary-arch_arm_none_footbridge_real
+binary-arch_arm_none_footbridge_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-footbridge' FLAVOUR='footbridge' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.footbridge' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-footbridge' ARCH='arm' COMPILER='gcc-4.1'
+binary-arch_arm_none_iop32x: binary-arch_arm_none_iop32x_real
+binary-arch_arm_none_iop32x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-iop32x' FLAVOUR='iop32x' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.iop32x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-iop32x' ARCH='arm' COMPILER='gcc-4.1'
+binary-arch_arm_none_ixp4xx: binary-arch_arm_none_ixp4xx_real
+binary-arch_arm_none_ixp4xx_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-ixp4xx' FLAVOUR='ixp4xx' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.ixp4xx' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-ixp4xx' ARCH='arm' COMPILER='gcc-4.1'
+binary-arch_arm_none_orion5x: binary-arch_arm_none_orion5x_real
+binary-arch_arm_none_orion5x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-orion5x' FLAVOUR='orion5x' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.orion5x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-orion5x' ARCH='arm' COMPILER='gcc-4.1'
+binary-arch_arm_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='arm' LIBC_DEV_ARCH='arm'
+binary-arch_arm_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='arm'
+binary-arch_armel: binary-arch_armel_none binary-arch_armel_real
+binary-arch_armel_none: binary-arch_armel_none_iop32x binary-arch_armel_none_ixp4xx binary-arch_armel_none_orion5x binary-arch_armel_none_real binary-arch_armel_none_versatile
+binary-arch_armel_none_iop32x: binary-arch_armel_none_iop32x_real
+binary-arch_armel_none_iop32x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-iop32x' FLAVOUR='iop32x' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.iop32x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-iop32x' ARCH='armel' COMPILER='gcc-4.1'
+binary-arch_armel_none_ixp4xx: binary-arch_armel_none_ixp4xx_real
+binary-arch_armel_none_ixp4xx_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-ixp4xx' FLAVOUR='ixp4xx' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.ixp4xx' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-ixp4xx' ARCH='armel' COMPILER='gcc-4.1'
+binary-arch_armel_none_orion5x: binary-arch_armel_none_orion5x_real
+binary-arch_armel_none_orion5x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-orion5x' FLAVOUR='orion5x' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.orion5x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-orion5x' ARCH='armel' COMPILER='gcc-4.1'
+binary-arch_armel_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='armel' LIBC_DEV_ARCH='arm'
+binary-arch_armel_none_versatile: binary-arch_armel_none_versatile_real
+binary-arch_armel_none_versatile_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-versatile' FLAVOUR='versatile' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.versatile' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-versatile' ARCH='armel' COMPILER='gcc-4.1'
+binary-arch_armel_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='armel'
+binary-arch_hppa: binary-arch_hppa_none binary-arch_hppa_real
+binary-arch_hppa_none: binary-arch_hppa_none_parisc binary-arch_hppa_none_parisc-smp binary-arch_hppa_none_parisc64 binary-arch_hppa_none_parisc64-smp binary-arch_hppa_none_real
+binary-arch_hppa_none_parisc: binary-arch_hppa_none_parisc_real
+binary-arch_hppa_none_parisc-smp: binary-arch_hppa_none_parisc-smp_real
+binary-arch_hppa_none_parisc-smp_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc-smp' FLAVOUR='parisc-smp' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc-smp' ARCH='hppa' COMPILER='gcc-4.1'
+binary-arch_hppa_none_parisc64: binary-arch_hppa_none_parisc64_real
+binary-arch_hppa_none_parisc64-smp: binary-arch_hppa_none_parisc64-smp_real
+binary-arch_hppa_none_parisc64-smp_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc64-smp' FLAVOUR='parisc64-smp' CFLAGS='-fno-cse-follow-jumps' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc64-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' OVERRIDE_HOST_TYPE='hppa64-linux-gnu' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc64-smp' ARCH='hppa' COMPILER='gcc-4.1'
+binary-arch_hppa_none_parisc64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc64' FLAVOUR='parisc64' CFLAGS='-fno-cse-follow-jumps' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' OVERRIDE_HOST_TYPE='hppa64-linux-gnu' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc64' ARCH='hppa' COMPILER='gcc-4.1'
+binary-arch_hppa_none_parisc_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc' FLAVOUR='parisc' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc' ARCH='hppa' COMPILER='gcc-4.1'
+binary-arch_hppa_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='hppa' LIBC_DEV_ARCH='parisc'
+binary-arch_hppa_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='hppa'
+binary-arch_i386: binary-arch_i386_none binary-arch_i386_openvz binary-arch_i386_real binary-arch_i386_vserver binary-arch_i386_xen
+binary-arch_i386_none: binary-arch_i386_none_486 binary-arch_i386_none_686 binary-arch_i386_none_686-bigmem binary-arch_i386_none_amd64 binary-arch_i386_none_real
+binary-arch_i386_none_486: binary-arch_i386_none_486_real
+binary-arch_i386_none_486_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-486' FLAVOUR='486' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.486' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-486' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_none_686: binary-arch_i386_none_686_real
+binary-arch_i386_none_686-bigmem: binary-arch_i386_none_686-bigmem_real
+binary-arch_i386_none_686-bigmem_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-686-bigmem' FLAVOUR='686-bigmem' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686-bigmem' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-686-bigmem' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_none_686_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-686' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_none_amd64: binary-arch_i386_none_amd64_real
+binary-arch_i386_none_amd64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/i386/config debian/config/amd64/config debian/config/amd64/config.amd64' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-amd64' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='i386' LIBC_DEV_ARCH='x86'
+binary-arch_i386_openvz: binary-arch_i386_openvz_686 binary-arch_i386_openvz_real
+binary-arch_i386_openvz_686: binary-arch_i386_openvz_686_real
+binary-arch_i386_openvz_686_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-openvz-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-openvz/config debian/config/i386/config.686-bigmem' LOCALVERSION_HEADERS='-openvz' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='openvz' TYPE='plain' LOCALVERSION='-openvz-686' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_openvz_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-openvz' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='openvz' ARCH='i386' LIBC_DEV_ARCH='x86'
+binary-arch_i386_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='i386'
+binary-arch_i386_vserver: binary-arch_i386_vserver_686 binary-arch_i386_vserver_686-bigmem binary-arch_i386_vserver_real
+binary-arch_i386_vserver_686: binary-arch_i386_vserver_686_real
+binary-arch_i386_vserver_686-bigmem: binary-arch_i386_vserver_686-bigmem_real
+binary-arch_i386_vserver_686-bigmem_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-686-bigmem' FLAVOUR='686-bigmem' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686-bigmem debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-686-bigmem' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_vserver_686_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-686' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_vserver_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='i386' LIBC_DEV_ARCH='x86'
+binary-arch_i386_xen: binary-arch_i386_xen_686 binary-arch_i386_xen_real
+binary-arch_i386_xen_686: binary-arch_i386_xen_686_real
+binary-arch_i386_xen_686_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-xen-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-xen/config debian/config/i386/xen/config debian/config/i386/config.686-bigmem debian/config/i386/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-i386 3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-686' ARCH='i386' COMPILER='gcc-4.1'
+	$(MAKE) -f debian/rules.real install-dummy DH_OPTIONS='-pxen-linux-system-2.6.26-2-xen-686' MAJOR='2.6' LOCALVERSION_IMAGE='-xen-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-xen/config debian/config/i386/xen/config debian/config/i386/config.686-bigmem debian/config/i386/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-i386 3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-686' ARCH='i386' COMPILER='gcc-4.1'
+binary-arch_i386_xen_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-xen' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='xen' ARCH='i386' LIBC_DEV_ARCH='x86'
+binary-arch_ia64: binary-arch_ia64_none binary-arch_ia64_real binary-arch_ia64_vserver
+binary-arch_ia64_none: binary-arch_ia64_none_itanium binary-arch_ia64_none_mckinley binary-arch_ia64_none_real
+binary-arch_ia64_none_itanium: binary-arch_ia64_none_itanium_real
+binary-arch_ia64_none_itanium_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-itanium' FLAVOUR='itanium' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.itanium' LOCALVERSION_HEADERS='' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-itanium' ARCH='ia64' COMPILER='gcc-4.1'
+binary-arch_ia64_none_mckinley: binary-arch_ia64_none_mckinley_real
+binary-arch_ia64_none_mckinley_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mckinley' FLAVOUR='mckinley' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.mckinley' LOCALVERSION_HEADERS='' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-mckinley' ARCH='ia64' COMPILER='gcc-4.1'
+binary-arch_ia64_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='ia64' LIBC_DEV_ARCH='ia64'
+binary-arch_ia64_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='ia64'
+binary-arch_ia64_vserver: binary-arch_ia64_vserver_itanium binary-arch_ia64_vserver_mckinley binary-arch_ia64_vserver_real
+binary-arch_ia64_vserver_itanium: binary-arch_ia64_vserver_itanium_real
+binary-arch_ia64_vserver_itanium_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-itanium' FLAVOUR='itanium' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.itanium debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-itanium' ARCH='ia64' COMPILER='gcc-4.1'
+binary-arch_ia64_vserver_mckinley: binary-arch_ia64_vserver_mckinley_real
+binary-arch_ia64_vserver_mckinley_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-mckinley' FLAVOUR='mckinley' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.mckinley debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-mckinley' ARCH='ia64' COMPILER='gcc-4.1'
+binary-arch_ia64_vserver_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='ia64' LIBC_DEV_ARCH='ia64'
+binary-arch_m68k: binary-arch_m68k_none binary-arch_m68k_real
+binary-arch_m68k_none: binary-arch_m68k_none_amiga binary-arch_m68k_none_atari binary-arch_m68k_none_bvme6000 binary-arch_m68k_none_mac binary-arch_m68k_none_mvme147 binary-arch_m68k_none_mvme16x binary-arch_m68k_none_real
+binary-arch_m68k_none_amiga: binary-arch_m68k_none_amiga_real
+binary-arch_m68k_none_amiga_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-amiga' FLAVOUR='amiga' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.amiga' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-amiga' ARCH='m68k' COMPILER='gcc-4.1'
+binary-arch_m68k_none_atari: binary-arch_m68k_none_atari_real
+binary-arch_m68k_none_atari_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-atari' FLAVOUR='atari' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.atari' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-atari' ARCH='m68k' COMPILER='gcc-4.1'
+binary-arch_m68k_none_bvme6000: binary-arch_m68k_none_bvme6000_real
+binary-arch_m68k_none_bvme6000_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-bvme6000' FLAVOUR='bvme6000' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.bvme6000' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-bvme6000' ARCH='m68k' COMPILER='gcc-4.1'
+binary-arch_m68k_none_mac: binary-arch_m68k_none_mac_real
+binary-arch_m68k_none_mac_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mac' FLAVOUR='mac' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mac' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mac' ARCH='m68k' COMPILER='gcc-4.1'
+binary-arch_m68k_none_mvme147: binary-arch_m68k_none_mvme147_real
+binary-arch_m68k_none_mvme147_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mvme147' FLAVOUR='mvme147' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mvme147' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mvme147' ARCH='m68k' COMPILER='gcc-4.1'
+binary-arch_m68k_none_mvme16x: binary-arch_m68k_none_mvme16x_real
+binary-arch_m68k_none_mvme16x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mvme16x' FLAVOUR='mvme16x' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mvme16x' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mvme16x' ARCH='m68k' COMPILER='gcc-4.1'
+binary-arch_m68k_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='m68k' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='m68k' LIBC_DEV_ARCH='m68k'
+binary-arch_m68k_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='m68k'
+binary-arch_mips: binary-arch_mips_none binary-arch_mips_real
+binary-arch_mips_none: binary-arch_mips_none_4kc-malta binary-arch_mips_none_5kc-malta binary-arch_mips_none_r4k-ip22 binary-arch_mips_none_r5k-ip32 binary-arch_mips_none_real binary-arch_mips_none_sb1-bcm91250a binary-arch_mips_none_sb1a-bcm91480b
+binary-arch_mips_none_4kc-malta: binary-arch_mips_none_4kc-malta_real
+binary-arch_mips_none_4kc-malta_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-4kc-malta' FLAVOUR='4kc-malta' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.4kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-4kc-malta' ARCH='mips' COMPILER='gcc-4.1'
+binary-arch_mips_none_5kc-malta: binary-arch_mips_none_5kc-malta_real
+binary-arch_mips_none_5kc-malta_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-5kc-malta' FLAVOUR='5kc-malta' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.5kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-5kc-malta' ARCH='mips' COMPILER='gcc-4.1'
+binary-arch_mips_none_r4k-ip22: binary-arch_mips_none_r4k-ip22_real
+binary-arch_mips_none_r4k-ip22_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-r4k-ip22' FLAVOUR='r4k-ip22' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.r4k-ip22' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r4k-ip22' ARCH='mips' COMPILER='gcc-4.1'
+binary-arch_mips_none_r5k-ip32: binary-arch_mips_none_r5k-ip32_real
+binary-arch_mips_none_r5k-ip32_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-r5k-ip32' FLAVOUR='r5k-ip32' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.r5k-ip32' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r5k-ip32' ARCH='mips' COMPILER='gcc-4.1'
+binary-arch_mips_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='mips' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='mips' LIBC_DEV_ARCH='mips'
+binary-arch_mips_none_sb1-bcm91250a: binary-arch_mips_none_sb1-bcm91250a_real
+binary-arch_mips_none_sb1-bcm91250a_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1-bcm91250a' FLAVOUR='sb1-bcm91250a' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.sb1-bcm91250a' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1-bcm91250a' ARCH='mips' COMPILER='gcc-4.1'
+binary-arch_mips_none_sb1a-bcm91480b: binary-arch_mips_none_sb1a-bcm91480b_real
+binary-arch_mips_none_sb1a-bcm91480b_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1a-bcm91480b' FLAVOUR='sb1a-bcm91480b' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.sb1a-bcm91480b' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1a-bcm91480b' ARCH='mips' COMPILER='gcc-4.1'
+binary-arch_mips_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='mips'
+binary-arch_mipsel: binary-arch_mipsel_none binary-arch_mipsel_real
+binary-arch_mipsel_none: binary-arch_mipsel_none_4kc-malta binary-arch_mipsel_none_5kc-malta binary-arch_mipsel_none_r5k-cobalt binary-arch_mipsel_none_real binary-arch_mipsel_none_sb1-bcm91250a binary-arch_mipsel_none_sb1a-bcm91480b
+binary-arch_mipsel_none_4kc-malta: binary-arch_mipsel_none_4kc-malta_real
+binary-arch_mipsel_none_4kc-malta_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-4kc-malta' FLAVOUR='4kc-malta' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.4kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-4kc-malta' ARCH='mipsel' COMPILER='gcc-4.1'
+binary-arch_mipsel_none_5kc-malta: binary-arch_mipsel_none_5kc-malta_real
+binary-arch_mipsel_none_5kc-malta_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-5kc-malta' FLAVOUR='5kc-malta' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.5kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-5kc-malta' ARCH='mipsel' COMPILER='gcc-4.1'
+binary-arch_mipsel_none_r5k-cobalt: binary-arch_mipsel_none_r5k-cobalt_real
+binary-arch_mipsel_none_r5k-cobalt_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-r5k-cobalt' FLAVOUR='r5k-cobalt' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.r5k-cobalt' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r5k-cobalt' ARCH='mipsel' COMPILER='gcc-4.1'
+binary-arch_mipsel_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='mips' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='mipsel' LIBC_DEV_ARCH='mips'
+binary-arch_mipsel_none_sb1-bcm91250a: binary-arch_mipsel_none_sb1-bcm91250a_real
+binary-arch_mipsel_none_sb1-bcm91250a_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1-bcm91250a' FLAVOUR='sb1-bcm91250a' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.sb1-bcm91250a' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1-bcm91250a' ARCH='mipsel' COMPILER='gcc-4.1'
+binary-arch_mipsel_none_sb1a-bcm91480b: binary-arch_mipsel_none_sb1a-bcm91480b_real
+binary-arch_mipsel_none_sb1a-bcm91480b_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1a-bcm91480b' FLAVOUR='sb1a-bcm91480b' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.sb1a-bcm91480b' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1a-bcm91480b' ARCH='mipsel' COMPILER='gcc-4.1'
+binary-arch_mipsel_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='mipsel'
+binary-arch_powerpc: binary-arch_powerpc_none binary-arch_powerpc_real binary-arch_powerpc_vserver
+binary-arch_powerpc_none: binary-arch_powerpc_none_powerpc binary-arch_powerpc_none_powerpc-smp binary-arch_powerpc_none_powerpc64 binary-arch_powerpc_none_real
+binary-arch_powerpc_none_powerpc: binary-arch_powerpc_none_powerpc_real
+binary-arch_powerpc_none_powerpc-smp: binary-arch_powerpc_none_powerpc-smp_real
+binary-arch_powerpc_none_powerpc-smp_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc-smp' FLAVOUR='powerpc-smp' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc debian/config/powerpc/config.powerpc-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc-smp' ARCH='powerpc' COMPILER='gcc-4.1'
+binary-arch_powerpc_none_powerpc64: binary-arch_powerpc_none_powerpc64_real
+binary-arch_powerpc_none_powerpc64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc64' FLAVOUR='powerpc64' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc64' ARCH='powerpc' COMPILER='gcc-4.1'
+binary-arch_powerpc_none_powerpc_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc' FLAVOUR='powerpc' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc' ARCH='powerpc' COMPILER='gcc-4.1'
+binary-arch_powerpc_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='powerpc' LIBC_DEV_ARCH='powerpc'
+binary-arch_powerpc_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='powerpc'
+binary-arch_powerpc_vserver: binary-arch_powerpc_vserver_powerpc binary-arch_powerpc_vserver_powerpc64 binary-arch_powerpc_vserver_real
+binary-arch_powerpc_vserver_powerpc: binary-arch_powerpc_vserver_powerpc_real
+binary-arch_powerpc_vserver_powerpc64: binary-arch_powerpc_vserver_powerpc64_real
+binary-arch_powerpc_vserver_powerpc64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-powerpc64' FLAVOUR='powerpc64' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc64 debian/config/featureset-vserver/config debian/config/powerpc/config.powerpc64' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-powerpc64' ARCH='powerpc' COMPILER='gcc-4.1'
+binary-arch_powerpc_vserver_powerpc_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-powerpc' FLAVOUR='powerpc' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc debian/config/featureset-vserver/config debian/config/powerpc/config.powerpc-smp' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-powerpc' ARCH='powerpc' COMPILER='gcc-4.1'
+binary-arch_powerpc_vserver_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='powerpc' LIBC_DEV_ARCH='powerpc'
+binary-arch_s390: binary-arch_s390_none binary-arch_s390_real binary-arch_s390_vserver
+binary-arch_s390_none: binary-arch_s390_none_real binary-arch_s390_none_s390 binary-arch_s390_none_s390-tape binary-arch_s390_none_s390x
+binary-arch_s390_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='s390' LIBC_DEV_ARCH='s390'
+binary-arch_s390_none_s390: binary-arch_s390_none_s390_real
+binary-arch_s390_none_s390-tape: binary-arch_s390_none_s390-tape_real
+binary-arch_s390_none_s390-tape_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-s390' FLAVOUR='s390-tape' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390-tape' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='s390' FEATURESET='none' TYPE='plain-s390-tape' LOCALVERSION='-s390-tape' ARCH='s390' COMPILER='gcc-4.1'
+binary-arch_s390_none_s390_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-s390' FLAVOUR='s390' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-s390' ARCH='s390' COMPILER='gcc-4.1'
+binary-arch_s390_none_s390x: binary-arch_s390_none_s390x_real
+binary-arch_s390_none_s390x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-s390x' FLAVOUR='s390x' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390x' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-s390x' ARCH='s390' COMPILER='gcc-4.1'
+binary-arch_s390_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='s390'
+binary-arch_s390_vserver: binary-arch_s390_vserver_real binary-arch_s390_vserver_s390x
+binary-arch_s390_vserver_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='s390' LIBC_DEV_ARCH='s390'
+binary-arch_s390_vserver_s390x: binary-arch_s390_vserver_s390x_real
+binary-arch_s390_vserver_s390x_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-s390x' FLAVOUR='s390x' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390x debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-s390x' ARCH='s390' COMPILER='gcc-4.1'
+binary-arch_sparc: binary-arch_sparc_none binary-arch_sparc_real binary-arch_sparc_vserver
+binary-arch_sparc_none: binary-arch_sparc_none_real binary-arch_sparc_none_sparc64 binary-arch_sparc_none_sparc64-smp
+binary-arch_sparc_none_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='sparc' LIBC_DEV_ARCH='sparc64'
+binary-arch_sparc_none_sparc64: binary-arch_sparc_none_sparc64_real
+binary-arch_sparc_none_sparc64-smp: binary-arch_sparc_none_sparc64-smp_real
+binary-arch_sparc_none_sparc64-smp_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-sparc64-smp' FLAVOUR='sparc64-smp' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sparc64-smp' ARCH='sparc' COMPILER='gcc-4.1'
+binary-arch_sparc_none_sparc64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-sparc64' FLAVOUR='sparc64' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sparc64' ARCH='sparc' COMPILER='gcc-4.1'
+binary-arch_sparc_real::
+	$(MAKE) -f debian/rules.real binary-arch-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='sparc'
+binary-arch_sparc_vserver: binary-arch_sparc_vserver_real binary-arch_sparc_vserver_sparc64
+binary-arch_sparc_vserver_real::
+	$(MAKE) -f debian/rules.real binary-arch-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='sparc' LIBC_DEV_ARCH='sparc64'
+binary-arch_sparc_vserver_sparc64: binary-arch_sparc_vserver_sparc64_real
+binary-arch_sparc_vserver_sparc64_real::
+	$(MAKE) -f debian/rules.real binary-arch-flavour KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-sparc64' FLAVOUR='sparc64' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64 debian/config/featureset-vserver/config debian/config/sparc/config.sparc64-smp' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-sparc64' ARCH='sparc' COMPILER='gcc-4.1'
+binary-indep::
+	$(MAKE) -f debian/rules.real binary-indep ABINAME='-2' SOURCEVERSION='2.6.26-15' MAJOR='2.6' VERSION='2.6.26' UPSTREAMVERSION='2.6.26'
+build: build_alpha build_amd64 build_arm build_armel build_hppa build_i386 build_ia64 build_m68k build_mips build_mipsel build_powerpc build_s390 build_sparc
+build_alpha: build_alpha_none build_alpha_real
+build_alpha_none: build_alpha_none_alpha-generic build_alpha_none_alpha-legacy build_alpha_none_alpha-smp build_alpha_none_real
+build_alpha_none_alpha-generic: build_alpha_none_alpha-generic_real
+build_alpha_none_alpha-generic_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-generic' FLAVOUR='alpha-generic' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-generic' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-generic' ARCH='alpha' COMPILER='gcc-4.1'
+build_alpha_none_alpha-legacy: build_alpha_none_alpha-legacy_real
+build_alpha_none_alpha-legacy_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-legacy' FLAVOUR='alpha-legacy' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-legacy' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-legacy' ARCH='alpha' COMPILER='gcc-4.1'
+build_alpha_none_alpha-smp: build_alpha_none_alpha-smp_real
+build_alpha_none_alpha-smp_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-smp' FLAVOUR='alpha-smp' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-smp' ARCH='alpha' COMPILER='gcc-4.1'
+build_alpha_none_real:
+build_alpha_real:
+build_amd64: build_amd64_none build_amd64_openvz build_amd64_real build_amd64_vserver build_amd64_xen
+build_amd64_none: build_amd64_none_amd64 build_amd64_none_real
+build_amd64_none_amd64: build_amd64_none_amd64_real
+build_amd64_none_amd64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+build_amd64_none_real:
+build_amd64_openvz: build_amd64_openvz_amd64 build_amd64_openvz_real
+build_amd64_openvz_amd64: build_amd64_openvz_amd64_real
+build_amd64_openvz_amd64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-openvz-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-openvz/config' LOCALVERSION_HEADERS='-openvz' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='openvz' TYPE='plain' LOCALVERSION='-openvz-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+build_amd64_openvz_real:
+build_amd64_real:
+build_amd64_vserver: build_amd64_vserver_amd64 build_amd64_vserver_real
+build_amd64_vserver_amd64: build_amd64_vserver_amd64_real
+build_amd64_vserver_amd64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+build_amd64_vserver_real:
+build_amd64_xen: build_amd64_xen_amd64 build_amd64_xen_real
+build_amd64_xen_amd64: build_amd64_xen_amd64_real
+build_amd64_xen_amd64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-xen-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-xen/config debian/config/amd64/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+build_amd64_xen_real:
+build_arm: build_arm_none build_arm_real
+build_arm_none: build_arm_none_footbridge build_arm_none_iop32x build_arm_none_ixp4xx build_arm_none_orion5x build_arm_none_real
+build_arm_none_footbridge: build_arm_none_footbridge_real
+build_arm_none_footbridge_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-footbridge' FLAVOUR='footbridge' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.footbridge' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-footbridge' ARCH='arm' COMPILER='gcc-4.1'
+build_arm_none_iop32x: build_arm_none_iop32x_real
+build_arm_none_iop32x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-iop32x' FLAVOUR='iop32x' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.iop32x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-iop32x' ARCH='arm' COMPILER='gcc-4.1'
+build_arm_none_ixp4xx: build_arm_none_ixp4xx_real
+build_arm_none_ixp4xx_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-ixp4xx' FLAVOUR='ixp4xx' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.ixp4xx' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-ixp4xx' ARCH='arm' COMPILER='gcc-4.1'
+build_arm_none_orion5x: build_arm_none_orion5x_real
+build_arm_none_orion5x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-orion5x' FLAVOUR='orion5x' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.orion5x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-orion5x' ARCH='arm' COMPILER='gcc-4.1'
+build_arm_none_real:
+build_arm_real:
+build_armel: build_armel_none build_armel_real
+build_armel_none: build_armel_none_iop32x build_armel_none_ixp4xx build_armel_none_orion5x build_armel_none_real build_armel_none_versatile
+build_armel_none_iop32x: build_armel_none_iop32x_real
+build_armel_none_iop32x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-iop32x' FLAVOUR='iop32x' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.iop32x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-iop32x' ARCH='armel' COMPILER='gcc-4.1'
+build_armel_none_ixp4xx: build_armel_none_ixp4xx_real
+build_armel_none_ixp4xx_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-ixp4xx' FLAVOUR='ixp4xx' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.ixp4xx' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-ixp4xx' ARCH='armel' COMPILER='gcc-4.1'
+build_armel_none_orion5x: build_armel_none_orion5x_real
+build_armel_none_orion5x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-orion5x' FLAVOUR='orion5x' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.orion5x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-orion5x' ARCH='armel' COMPILER='gcc-4.1'
+build_armel_none_real:
+build_armel_none_versatile: build_armel_none_versatile_real
+build_armel_none_versatile_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-versatile' FLAVOUR='versatile' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.versatile' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-versatile' ARCH='armel' COMPILER='gcc-4.1'
+build_armel_real:
+build_hppa: build_hppa_none build_hppa_real
+build_hppa_none: build_hppa_none_parisc build_hppa_none_parisc-smp build_hppa_none_parisc64 build_hppa_none_parisc64-smp build_hppa_none_real
+build_hppa_none_parisc: build_hppa_none_parisc_real
+build_hppa_none_parisc-smp: build_hppa_none_parisc-smp_real
+build_hppa_none_parisc-smp_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-parisc-smp' FLAVOUR='parisc-smp' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc-smp' ARCH='hppa' COMPILER='gcc-4.1'
+build_hppa_none_parisc64: build_hppa_none_parisc64_real
+build_hppa_none_parisc64-smp: build_hppa_none_parisc64-smp_real
+build_hppa_none_parisc64-smp_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-parisc64-smp' FLAVOUR='parisc64-smp' CFLAGS='-fno-cse-follow-jumps' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc64-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' OVERRIDE_HOST_TYPE='hppa64-linux-gnu' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc64-smp' ARCH='hppa' COMPILER='gcc-4.1'
+build_hppa_none_parisc64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-parisc64' FLAVOUR='parisc64' CFLAGS='-fno-cse-follow-jumps' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' OVERRIDE_HOST_TYPE='hppa64-linux-gnu' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc64' ARCH='hppa' COMPILER='gcc-4.1'
+build_hppa_none_parisc_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-parisc' FLAVOUR='parisc' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc' ARCH='hppa' COMPILER='gcc-4.1'
+build_hppa_none_real:
+build_hppa_real:
+build_i386: build_i386_none build_i386_openvz build_i386_real build_i386_vserver build_i386_xen
+build_i386_none: build_i386_none_486 build_i386_none_686 build_i386_none_686-bigmem build_i386_none_amd64 build_i386_none_real
+build_i386_none_486: build_i386_none_486_real
+build_i386_none_486_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-486' FLAVOUR='486' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.486' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-486' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_none_686: build_i386_none_686_real
+build_i386_none_686-bigmem: build_i386_none_686-bigmem_real
+build_i386_none_686-bigmem_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-686-bigmem' FLAVOUR='686-bigmem' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686-bigmem' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-686-bigmem' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_none_686_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-686' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_none_amd64: build_i386_none_amd64_real
+build_i386_none_amd64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/i386/config debian/config/amd64/config debian/config/amd64/config.amd64' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-amd64' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_none_real:
+build_i386_openvz: build_i386_openvz_686 build_i386_openvz_real
+build_i386_openvz_686: build_i386_openvz_686_real
+build_i386_openvz_686_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-openvz-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-openvz/config debian/config/i386/config.686-bigmem' LOCALVERSION_HEADERS='-openvz' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='openvz' TYPE='plain' LOCALVERSION='-openvz-686' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_openvz_real:
+build_i386_real:
+build_i386_vserver: build_i386_vserver_686 build_i386_vserver_686-bigmem build_i386_vserver_real
+build_i386_vserver_686: build_i386_vserver_686_real
+build_i386_vserver_686-bigmem: build_i386_vserver_686-bigmem_real
+build_i386_vserver_686-bigmem_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-686-bigmem' FLAVOUR='686-bigmem' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686-bigmem debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-686-bigmem' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_vserver_686_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-686' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_vserver_real:
+build_i386_xen: build_i386_xen_686 build_i386_xen_real
+build_i386_xen_686: build_i386_xen_686_real
+build_i386_xen_686_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-xen-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-xen/config debian/config/i386/xen/config debian/config/i386/config.686-bigmem debian/config/i386/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-i386 3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-686' ARCH='i386' COMPILER='gcc-4.1'
+build_i386_xen_real:
+build_ia64: build_ia64_none build_ia64_real build_ia64_vserver
+build_ia64_none: build_ia64_none_itanium build_ia64_none_mckinley build_ia64_none_real
+build_ia64_none_itanium: build_ia64_none_itanium_real
+build_ia64_none_itanium_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-itanium' FLAVOUR='itanium' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.itanium' LOCALVERSION_HEADERS='' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-itanium' ARCH='ia64' COMPILER='gcc-4.1'
+build_ia64_none_mckinley: build_ia64_none_mckinley_real
+build_ia64_none_mckinley_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-mckinley' FLAVOUR='mckinley' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.mckinley' LOCALVERSION_HEADERS='' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-mckinley' ARCH='ia64' COMPILER='gcc-4.1'
+build_ia64_none_real:
+build_ia64_real:
+build_ia64_vserver: build_ia64_vserver_itanium build_ia64_vserver_mckinley build_ia64_vserver_real
+build_ia64_vserver_itanium: build_ia64_vserver_itanium_real
+build_ia64_vserver_itanium_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-itanium' FLAVOUR='itanium' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.itanium debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-itanium' ARCH='ia64' COMPILER='gcc-4.1'
+build_ia64_vserver_mckinley: build_ia64_vserver_mckinley_real
+build_ia64_vserver_mckinley_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-mckinley' FLAVOUR='mckinley' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.mckinley debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-mckinley' ARCH='ia64' COMPILER='gcc-4.1'
+build_ia64_vserver_real:
+build_m68k: build_m68k_none build_m68k_real
+build_m68k_none: build_m68k_none_amiga build_m68k_none_atari build_m68k_none_bvme6000 build_m68k_none_mac build_m68k_none_mvme147 build_m68k_none_mvme16x build_m68k_none_real
+build_m68k_none_amiga: build_m68k_none_amiga_real
+build_m68k_none_amiga_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-amiga' FLAVOUR='amiga' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.amiga' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-amiga' ARCH='m68k' COMPILER='gcc-4.1'
+build_m68k_none_atari: build_m68k_none_atari_real
+build_m68k_none_atari_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-atari' FLAVOUR='atari' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.atari' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-atari' ARCH='m68k' COMPILER='gcc-4.1'
+build_m68k_none_bvme6000: build_m68k_none_bvme6000_real
+build_m68k_none_bvme6000_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-bvme6000' FLAVOUR='bvme6000' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.bvme6000' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-bvme6000' ARCH='m68k' COMPILER='gcc-4.1'
+build_m68k_none_mac: build_m68k_none_mac_real
+build_m68k_none_mac_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-mac' FLAVOUR='mac' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mac' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mac' ARCH='m68k' COMPILER='gcc-4.1'
+build_m68k_none_mvme147: build_m68k_none_mvme147_real
+build_m68k_none_mvme147_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-mvme147' FLAVOUR='mvme147' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mvme147' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mvme147' ARCH='m68k' COMPILER='gcc-4.1'
+build_m68k_none_mvme16x: build_m68k_none_mvme16x_real
+build_m68k_none_mvme16x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-mvme16x' FLAVOUR='mvme16x' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mvme16x' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mvme16x' ARCH='m68k' COMPILER='gcc-4.1'
+build_m68k_none_real:
+build_m68k_real:
+build_mips: build_mips_none build_mips_real
+build_mips_none: build_mips_none_4kc-malta build_mips_none_5kc-malta build_mips_none_r4k-ip22 build_mips_none_r5k-ip32 build_mips_none_real build_mips_none_sb1-bcm91250a build_mips_none_sb1a-bcm91480b
+build_mips_none_4kc-malta: build_mips_none_4kc-malta_real
+build_mips_none_4kc-malta_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-4kc-malta' FLAVOUR='4kc-malta' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.4kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-4kc-malta' ARCH='mips' COMPILER='gcc-4.1'
+build_mips_none_5kc-malta: build_mips_none_5kc-malta_real
+build_mips_none_5kc-malta_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-5kc-malta' FLAVOUR='5kc-malta' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.5kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-5kc-malta' ARCH='mips' COMPILER='gcc-4.1'
+build_mips_none_r4k-ip22: build_mips_none_r4k-ip22_real
+build_mips_none_r4k-ip22_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-r4k-ip22' FLAVOUR='r4k-ip22' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.r4k-ip22' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r4k-ip22' ARCH='mips' COMPILER='gcc-4.1'
+build_mips_none_r5k-ip32: build_mips_none_r5k-ip32_real
+build_mips_none_r5k-ip32_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-r5k-ip32' FLAVOUR='r5k-ip32' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.r5k-ip32' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r5k-ip32' ARCH='mips' COMPILER='gcc-4.1'
+build_mips_none_real:
+build_mips_none_sb1-bcm91250a: build_mips_none_sb1-bcm91250a_real
+build_mips_none_sb1-bcm91250a_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-sb1-bcm91250a' FLAVOUR='sb1-bcm91250a' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.sb1-bcm91250a' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1-bcm91250a' ARCH='mips' COMPILER='gcc-4.1'
+build_mips_none_sb1a-bcm91480b: build_mips_none_sb1a-bcm91480b_real
+build_mips_none_sb1a-bcm91480b_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-sb1a-bcm91480b' FLAVOUR='sb1a-bcm91480b' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.sb1a-bcm91480b' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1a-bcm91480b' ARCH='mips' COMPILER='gcc-4.1'
+build_mips_real:
+build_mipsel: build_mipsel_none build_mipsel_real
+build_mipsel_none: build_mipsel_none_4kc-malta build_mipsel_none_5kc-malta build_mipsel_none_r5k-cobalt build_mipsel_none_real build_mipsel_none_sb1-bcm91250a build_mipsel_none_sb1a-bcm91480b
+build_mipsel_none_4kc-malta: build_mipsel_none_4kc-malta_real
+build_mipsel_none_4kc-malta_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-4kc-malta' FLAVOUR='4kc-malta' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.4kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-4kc-malta' ARCH='mipsel' COMPILER='gcc-4.1'
+build_mipsel_none_5kc-malta: build_mipsel_none_5kc-malta_real
+build_mipsel_none_5kc-malta_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-5kc-malta' FLAVOUR='5kc-malta' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.5kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-5kc-malta' ARCH='mipsel' COMPILER='gcc-4.1'
+build_mipsel_none_r5k-cobalt: build_mipsel_none_r5k-cobalt_real
+build_mipsel_none_r5k-cobalt_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-r5k-cobalt' FLAVOUR='r5k-cobalt' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.r5k-cobalt' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r5k-cobalt' ARCH='mipsel' COMPILER='gcc-4.1'
+build_mipsel_none_real:
+build_mipsel_none_sb1-bcm91250a: build_mipsel_none_sb1-bcm91250a_real
+build_mipsel_none_sb1-bcm91250a_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-sb1-bcm91250a' FLAVOUR='sb1-bcm91250a' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.sb1-bcm91250a' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1-bcm91250a' ARCH='mipsel' COMPILER='gcc-4.1'
+build_mipsel_none_sb1a-bcm91480b: build_mipsel_none_sb1a-bcm91480b_real
+build_mipsel_none_sb1a-bcm91480b_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-sb1a-bcm91480b' FLAVOUR='sb1a-bcm91480b' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.sb1a-bcm91480b' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1a-bcm91480b' ARCH='mipsel' COMPILER='gcc-4.1'
+build_mipsel_real:
+build_powerpc: build_powerpc_none build_powerpc_real build_powerpc_vserver
+build_powerpc_none: build_powerpc_none_powerpc build_powerpc_none_powerpc-smp build_powerpc_none_powerpc64 build_powerpc_none_real
+build_powerpc_none_powerpc: build_powerpc_none_powerpc_real
+build_powerpc_none_powerpc-smp: build_powerpc_none_powerpc-smp_real
+build_powerpc_none_powerpc-smp_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc-smp' FLAVOUR='powerpc-smp' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc debian/config/powerpc/config.powerpc-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc-smp' ARCH='powerpc' COMPILER='gcc-4.1'
+build_powerpc_none_powerpc64: build_powerpc_none_powerpc64_real
+build_powerpc_none_powerpc64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc64' FLAVOUR='powerpc64' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc64' ARCH='powerpc' COMPILER='gcc-4.1'
+build_powerpc_none_powerpc_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc' FLAVOUR='powerpc' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc' ARCH='powerpc' COMPILER='gcc-4.1'
+build_powerpc_none_real:
+build_powerpc_real:
+build_powerpc_vserver: build_powerpc_vserver_powerpc build_powerpc_vserver_powerpc64 build_powerpc_vserver_real
+build_powerpc_vserver_powerpc: build_powerpc_vserver_powerpc_real
+build_powerpc_vserver_powerpc64: build_powerpc_vserver_powerpc64_real
+build_powerpc_vserver_powerpc64_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-powerpc64' FLAVOUR='powerpc64' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc64 debian/config/featureset-vserver/config debian/config/powerpc/config.powerpc64' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-powerpc64' ARCH='powerpc' COMPILER='gcc-4.1'
+build_powerpc_vserver_powerpc_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-powerpc' FLAVOUR='powerpc' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc debian/config/featureset-vserver/config debian/config/powerpc/config.powerpc-smp' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-powerpc' ARCH='powerpc' COMPILER='gcc-4.1'
+build_powerpc_vserver_real:
+build_s390: build_s390_none build_s390_real build_s390_vserver
+build_s390_none: build_s390_none_real build_s390_none_s390 build_s390_none_s390-tape build_s390_none_s390x
+build_s390_none_real:
+build_s390_none_s390: build_s390_none_s390_real
+build_s390_none_s390-tape: build_s390_none_s390-tape_real
+build_s390_none_s390-tape_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-s390' FLAVOUR='s390-tape' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390-tape' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='s390' FEATURESET='none' TYPE='plain-s390-tape' LOCALVERSION='-s390-tape' ARCH='s390' COMPILER='gcc-4.1'
+build_s390_none_s390_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-s390' FLAVOUR='s390' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-s390' ARCH='s390' COMPILER='gcc-4.1'
+build_s390_none_s390x: build_s390_none_s390x_real
+build_s390_none_s390x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-s390x' FLAVOUR='s390x' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390x' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-s390x' ARCH='s390' COMPILER='gcc-4.1'
+build_s390_real:
+build_s390_vserver: build_s390_vserver_real build_s390_vserver_s390x
+build_s390_vserver_real:
+build_s390_vserver_s390x: build_s390_vserver_s390x_real
+build_s390_vserver_s390x_real::
+	$(MAKE) -f debian/rules.real build MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-s390x' FLAVOUR='s390x' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390x debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-s390x' ARCH='s390' COMPILER='gcc-4.1'
+build_sparc: build_sparc_none build_sparc_real build_sparc_vserver
+build_sparc_none: build_sparc_none_real build_sparc_none_sparc64 build_sparc_none_sparc64-smp
+build_sparc_none_real:
+build_sparc_none_sparc64: build_sparc_none_sparc64_real
+build_sparc_none_sparc64-smp: build_sparc_none_sparc64-smp_real
+build_sparc_none_sparc64-smp_real::
+	$(MAKE) -f debian/rules.real build KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-sparc64-smp' FLAVOUR='sparc64-smp' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sparc64-smp' ARCH='sparc' COMPILER='gcc-4.1'
+build_sparc_none_sparc64_real::
+	$(MAKE) -f debian/rules.real build KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-sparc64' FLAVOUR='sparc64' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sparc64' ARCH='sparc' COMPILER='gcc-4.1'
+build_sparc_real:
+build_sparc_vserver: build_sparc_vserver_real build_sparc_vserver_sparc64
+build_sparc_vserver_real:
+build_sparc_vserver_sparc64: build_sparc_vserver_sparc64_real
+build_sparc_vserver_sparc64_real::
+	$(MAKE) -f debian/rules.real build KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-sparc64' FLAVOUR='sparc64' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64 debian/config/featureset-vserver/config debian/config/sparc/config.sparc64-smp' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-sparc64' ARCH='sparc' COMPILER='gcc-4.1'
+setup: setup_alpha setup_amd64 setup_arm setup_armel setup_hppa setup_i386 setup_ia64 setup_m68k setup_mips setup_mipsel setup_powerpc setup_s390 setup_sparc
+setup_alpha: setup_alpha_none setup_alpha_real
+setup_alpha_none: setup_alpha_none_alpha-generic setup_alpha_none_alpha-legacy setup_alpha_none_alpha-smp setup_alpha_none_real
+setup_alpha_none_alpha-generic: setup_alpha_none_alpha-generic_real
+setup_alpha_none_alpha-generic_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-generic' FLAVOUR='alpha-generic' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-generic' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-generic' ARCH='alpha' COMPILER='gcc-4.1'
+setup_alpha_none_alpha-legacy: setup_alpha_none_alpha-legacy_real
+setup_alpha_none_alpha-legacy_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-legacy' FLAVOUR='alpha-legacy' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-legacy' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-legacy' ARCH='alpha' COMPILER='gcc-4.1'
+setup_alpha_none_alpha-smp: setup_alpha_none_alpha-smp_real
+setup_alpha_none_alpha-smp_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-alpha-smp' FLAVOUR='alpha-smp' KCONFIG='debian/config/config debian/config/alpha/config debian/config/alpha/config.alpha-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='alpha' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-alpha-smp' ARCH='alpha' COMPILER='gcc-4.1'
+setup_alpha_none_real:
+setup_alpha_real:
+setup_amd64: setup_amd64_none setup_amd64_openvz setup_amd64_real setup_amd64_vserver setup_amd64_xen
+setup_amd64_none: setup_amd64_none_amd64 setup_amd64_none_real
+setup_amd64_none_amd64: setup_amd64_none_amd64_real
+setup_amd64_none_amd64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+setup_amd64_none_real:
+setup_amd64_openvz: setup_amd64_openvz_amd64 setup_amd64_openvz_real
+setup_amd64_openvz_amd64: setup_amd64_openvz_amd64_real
+setup_amd64_openvz_amd64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-openvz-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-openvz/config' LOCALVERSION_HEADERS='-openvz' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='openvz' TYPE='plain' LOCALVERSION='-openvz-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+setup_amd64_openvz_real:
+setup_amd64_real:
+setup_amd64_vserver: setup_amd64_vserver_amd64 setup_amd64_vserver_real
+setup_amd64_vserver_amd64: setup_amd64_vserver_amd64_real
+setup_amd64_vserver_amd64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+setup_amd64_vserver_real:
+setup_amd64_xen: setup_amd64_xen_amd64 setup_amd64_xen_real
+setup_amd64_xen_amd64: setup_amd64_xen_amd64_real
+setup_amd64_xen_amd64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-xen-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/amd64/config debian/config/amd64/config.amd64 debian/config/featureset-xen/config debian/config/amd64/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-amd64' ARCH='amd64' COMPILER='gcc-4.1'
+setup_amd64_xen_real:
+setup_arm: setup_arm_none setup_arm_real
+setup_arm_none: setup_arm_none_footbridge setup_arm_none_iop32x setup_arm_none_ixp4xx setup_arm_none_orion5x setup_arm_none_real
+setup_arm_none_footbridge: setup_arm_none_footbridge_real
+setup_arm_none_footbridge_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-footbridge' FLAVOUR='footbridge' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.footbridge' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-footbridge' ARCH='arm' COMPILER='gcc-4.1'
+setup_arm_none_iop32x: setup_arm_none_iop32x_real
+setup_arm_none_iop32x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-iop32x' FLAVOUR='iop32x' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.iop32x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-iop32x' ARCH='arm' COMPILER='gcc-4.1'
+setup_arm_none_ixp4xx: setup_arm_none_ixp4xx_real
+setup_arm_none_ixp4xx_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-ixp4xx' FLAVOUR='ixp4xx' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.ixp4xx' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-ixp4xx' ARCH='arm' COMPILER='gcc-4.1'
+setup_arm_none_orion5x: setup_arm_none_orion5x_real
+setup_arm_none_orion5x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-orion5x' FLAVOUR='orion5x' KCONFIG='debian/config/config debian/config/arm/config debian/config/arm/config.orion5x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-orion5x' ARCH='arm' COMPILER='gcc-4.1'
+setup_arm_none_real:
+setup_arm_real:
+setup_armel: setup_armel_none setup_armel_real
+setup_armel_none: setup_armel_none_iop32x setup_armel_none_ixp4xx setup_armel_none_orion5x setup_armel_none_real setup_armel_none_versatile
+setup_armel_none_iop32x: setup_armel_none_iop32x_real
+setup_armel_none_iop32x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-iop32x' FLAVOUR='iop32x' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.iop32x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-iop32x' ARCH='armel' COMPILER='gcc-4.1'
+setup_armel_none_ixp4xx: setup_armel_none_ixp4xx_real
+setup_armel_none_ixp4xx_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-ixp4xx' FLAVOUR='ixp4xx' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.ixp4xx' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-ixp4xx' ARCH='armel' COMPILER='gcc-4.1'
+setup_armel_none_orion5x: setup_armel_none_orion5x_real
+setup_armel_none_orion5x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-orion5x' FLAVOUR='orion5x' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.orion5x' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-orion5x' ARCH='armel' COMPILER='gcc-4.1'
+setup_armel_none_real:
+setup_armel_none_versatile: setup_armel_none_versatile_real
+setup_armel_none_versatile_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-versatile' FLAVOUR='versatile' KCONFIG='debian/config/config debian/config/armel/config debian/config/arm/config.versatile' LOCALVERSION_HEADERS='' KERNEL_ARCH='arm' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-versatile' ARCH='armel' COMPILER='gcc-4.1'
+setup_armel_real:
+setup_hppa: setup_hppa_none setup_hppa_real
+setup_hppa_none: setup_hppa_none_parisc setup_hppa_none_parisc-smp setup_hppa_none_parisc64 setup_hppa_none_parisc64-smp setup_hppa_none_real
+setup_hppa_none_parisc: setup_hppa_none_parisc_real
+setup_hppa_none_parisc-smp: setup_hppa_none_parisc-smp_real
+setup_hppa_none_parisc-smp_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc-smp' FLAVOUR='parisc-smp' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc-smp' ARCH='hppa' COMPILER='gcc-4.1'
+setup_hppa_none_parisc64: setup_hppa_none_parisc64_real
+setup_hppa_none_parisc64-smp: setup_hppa_none_parisc64-smp_real
+setup_hppa_none_parisc64-smp_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc64-smp' FLAVOUR='parisc64-smp' CFLAGS='-fno-cse-follow-jumps' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc64-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' OVERRIDE_HOST_TYPE='hppa64-linux-gnu' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc64-smp' ARCH='hppa' COMPILER='gcc-4.1'
+setup_hppa_none_parisc64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc64' FLAVOUR='parisc64' CFLAGS='-fno-cse-follow-jumps' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' OVERRIDE_HOST_TYPE='hppa64-linux-gnu' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc64' ARCH='hppa' COMPILER='gcc-4.1'
+setup_hppa_none_parisc_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-parisc' FLAVOUR='parisc' KCONFIG='debian/config/config debian/config/hppa/config debian/config/hppa/config.parisc' LOCALVERSION_HEADERS='' KERNEL_ARCH='parisc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-parisc' ARCH='hppa' COMPILER='gcc-4.1'
+setup_hppa_none_real:
+setup_hppa_real:
+setup_i386: setup_i386_none setup_i386_openvz setup_i386_real setup_i386_vserver setup_i386_xen
+setup_i386_none: setup_i386_none_486 setup_i386_none_686 setup_i386_none_686-bigmem setup_i386_none_amd64 setup_i386_none_real
+setup_i386_none_486: setup_i386_none_486_real
+setup_i386_none_486_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-486' FLAVOUR='486' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.486' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-486' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_none_686: setup_i386_none_686_real
+setup_i386_none_686-bigmem: setup_i386_none_686-bigmem_real
+setup_i386_none_686-bigmem_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-686-bigmem' FLAVOUR='686-bigmem' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686-bigmem' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-686-bigmem' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_none_686_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-686' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_none_amd64: setup_i386_none_amd64_real
+setup_i386_none_amd64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-amd64' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/i386/config debian/config/amd64/config debian/config/amd64/config.amd64' LOCALVERSION_HEADERS='' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-amd64' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_none_real:
+setup_i386_openvz: setup_i386_openvz_686 setup_i386_openvz_real
+setup_i386_openvz_686: setup_i386_openvz_686_real
+setup_i386_openvz_686_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-openvz-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-openvz/config debian/config/i386/config.686-bigmem' LOCALVERSION_HEADERS='-openvz' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='openvz' TYPE='plain' LOCALVERSION='-openvz-686' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_openvz_real:
+setup_i386_real:
+setup_i386_vserver: setup_i386_vserver_686 setup_i386_vserver_686-bigmem setup_i386_vserver_real
+setup_i386_vserver_686: setup_i386_vserver_686_real
+setup_i386_vserver_686-bigmem: setup_i386_vserver_686-bigmem_real
+setup_i386_vserver_686-bigmem_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-686-bigmem' FLAVOUR='686-bigmem' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686-bigmem debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-686-bigmem' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_vserver_686_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-686' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_vserver_real:
+setup_i386_xen: setup_i386_xen_686 setup_i386_xen_real
+setup_i386_xen_686: setup_i386_xen_686_real
+setup_i386_xen_686_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-xen-686' FLAVOUR='686' KCONFIG='debian/config/config debian/config/i386/config debian/config/i386/config.686 debian/config/featureset-xen/config debian/config/i386/xen/config debian/config/i386/config.686-bigmem debian/config/i386/xen/config' LOCALVERSION_HEADERS='-xen' KERNEL_ARCH='x86' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='x86' XEN_VERSIONS='3.2-1-i386 3.2-1-amd64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' INITRD_CMD='mkinitramfs-kpkg' FEATURESET='xen' TYPE='plain-xen' LOCALVERSION='-xen-686' ARCH='i386' COMPILER='gcc-4.1'
+setup_i386_xen_real:
+setup_ia64: setup_ia64_none setup_ia64_real setup_ia64_vserver
+setup_ia64_none: setup_ia64_none_itanium setup_ia64_none_mckinley setup_ia64_none_real
+setup_ia64_none_itanium: setup_ia64_none_itanium_real
+setup_ia64_none_itanium_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-itanium' FLAVOUR='itanium' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.itanium' LOCALVERSION_HEADERS='' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-itanium' ARCH='ia64' COMPILER='gcc-4.1'
+setup_ia64_none_mckinley: setup_ia64_none_mckinley_real
+setup_ia64_none_mckinley_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mckinley' FLAVOUR='mckinley' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.mckinley' LOCALVERSION_HEADERS='' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-mckinley' ARCH='ia64' COMPILER='gcc-4.1'
+setup_ia64_none_real:
+setup_ia64_real:
+setup_ia64_vserver: setup_ia64_vserver_itanium setup_ia64_vserver_mckinley setup_ia64_vserver_real
+setup_ia64_vserver_itanium: setup_ia64_vserver_itanium_real
+setup_ia64_vserver_itanium_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-itanium' FLAVOUR='itanium' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.itanium debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-itanium' ARCH='ia64' COMPILER='gcc-4.1'
+setup_ia64_vserver_mckinley: setup_ia64_vserver_mckinley_real
+setup_ia64_vserver_mckinley_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-mckinley' FLAVOUR='mckinley' KCONFIG='debian/config/config debian/config/ia64/config debian/config/ia64/config.mckinley debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='ia64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-mckinley' ARCH='ia64' COMPILER='gcc-4.1'
+setup_ia64_vserver_real:
+setup_m68k: setup_m68k_none setup_m68k_real
+setup_m68k_none: setup_m68k_none_amiga setup_m68k_none_atari setup_m68k_none_bvme6000 setup_m68k_none_mac setup_m68k_none_mvme147 setup_m68k_none_mvme16x setup_m68k_none_real
+setup_m68k_none_amiga: setup_m68k_none_amiga_real
+setup_m68k_none_amiga_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-amiga' FLAVOUR='amiga' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.amiga' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-amiga' ARCH='m68k' COMPILER='gcc-4.1'
+setup_m68k_none_atari: setup_m68k_none_atari_real
+setup_m68k_none_atari_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-atari' FLAVOUR='atari' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.atari' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-atari' ARCH='m68k' COMPILER='gcc-4.1'
+setup_m68k_none_bvme6000: setup_m68k_none_bvme6000_real
+setup_m68k_none_bvme6000_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-bvme6000' FLAVOUR='bvme6000' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.bvme6000' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-bvme6000' ARCH='m68k' COMPILER='gcc-4.1'
+setup_m68k_none_mac: setup_m68k_none_mac_real
+setup_m68k_none_mac_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mac' FLAVOUR='mac' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mac' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mac' ARCH='m68k' COMPILER='gcc-4.1'
+setup_m68k_none_mvme147: setup_m68k_none_mvme147_real
+setup_m68k_none_mvme147_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mvme147' FLAVOUR='mvme147' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mvme147' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mvme147' ARCH='m68k' COMPILER='gcc-4.1'
+setup_m68k_none_mvme16x: setup_m68k_none_mvme16x_real
+setup_m68k_none_mvme16x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-mvme16x' FLAVOUR='mvme16x' KCONFIG='debian/config/config debian/config/m68k/config debian/config/m68k/config.mvme16x' LOCALVERSION_HEADERS='' KERNEL_ARCH='m68k' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='m68k' FEATURESET='none' TYPE='plain' LOCALVERSION='-mvme16x' ARCH='m68k' COMPILER='gcc-4.1'
+setup_m68k_none_real:
+setup_m68k_real:
+setup_mips: setup_mips_none setup_mips_real
+setup_mips_none: setup_mips_none_4kc-malta setup_mips_none_5kc-malta setup_mips_none_r4k-ip22 setup_mips_none_r5k-ip32 setup_mips_none_real setup_mips_none_sb1-bcm91250a setup_mips_none_sb1a-bcm91480b
+setup_mips_none_4kc-malta: setup_mips_none_4kc-malta_real
+setup_mips_none_4kc-malta_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-4kc-malta' FLAVOUR='4kc-malta' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.4kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-4kc-malta' ARCH='mips' COMPILER='gcc-4.1'
+setup_mips_none_5kc-malta: setup_mips_none_5kc-malta_real
+setup_mips_none_5kc-malta_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-5kc-malta' FLAVOUR='5kc-malta' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.5kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-5kc-malta' ARCH='mips' COMPILER='gcc-4.1'
+setup_mips_none_r4k-ip22: setup_mips_none_r4k-ip22_real
+setup_mips_none_r4k-ip22_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-r4k-ip22' FLAVOUR='r4k-ip22' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.r4k-ip22' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r4k-ip22' ARCH='mips' COMPILER='gcc-4.1'
+setup_mips_none_r5k-ip32: setup_mips_none_r5k-ip32_real
+setup_mips_none_r5k-ip32_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-r5k-ip32' FLAVOUR='r5k-ip32' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.r5k-ip32' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r5k-ip32' ARCH='mips' COMPILER='gcc-4.1'
+setup_mips_none_real:
+setup_mips_none_sb1-bcm91250a: setup_mips_none_sb1-bcm91250a_real
+setup_mips_none_sb1-bcm91250a_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1-bcm91250a' FLAVOUR='sb1-bcm91250a' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.sb1-bcm91250a' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1-bcm91250a' ARCH='mips' COMPILER='gcc-4.1'
+setup_mips_none_sb1a-bcm91480b: setup_mips_none_sb1a-bcm91480b_real
+setup_mips_none_sb1a-bcm91480b_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1a-bcm91480b' FLAVOUR='sb1a-bcm91480b' KCONFIG='debian/config/config debian/config/mips/config debian/config/mips/config.sb1a-bcm91480b' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1a-bcm91480b' ARCH='mips' COMPILER='gcc-4.1'
+setup_mips_real:
+setup_mipsel: setup_mipsel_none setup_mipsel_real
+setup_mipsel_none: setup_mipsel_none_4kc-malta setup_mipsel_none_5kc-malta setup_mipsel_none_r5k-cobalt setup_mipsel_none_real setup_mipsel_none_sb1-bcm91250a setup_mipsel_none_sb1a-bcm91480b
+setup_mipsel_none_4kc-malta: setup_mipsel_none_4kc-malta_real
+setup_mipsel_none_4kc-malta_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-4kc-malta' FLAVOUR='4kc-malta' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.4kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-4kc-malta' ARCH='mipsel' COMPILER='gcc-4.1'
+setup_mipsel_none_5kc-malta: setup_mipsel_none_5kc-malta_real
+setup_mipsel_none_5kc-malta_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-5kc-malta' FLAVOUR='5kc-malta' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.5kc-malta' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-5kc-malta' ARCH='mipsel' COMPILER='gcc-4.1'
+setup_mipsel_none_r5k-cobalt: setup_mipsel_none_r5k-cobalt_real
+setup_mipsel_none_r5k-cobalt_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-r5k-cobalt' FLAVOUR='r5k-cobalt' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.r5k-cobalt' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-r5k-cobalt' ARCH='mipsel' COMPILER='gcc-4.1'
+setup_mipsel_none_real:
+setup_mipsel_none_sb1-bcm91250a: setup_mipsel_none_sb1-bcm91250a_real
+setup_mipsel_none_sb1-bcm91250a_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1-bcm91250a' FLAVOUR='sb1-bcm91250a' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.sb1-bcm91250a' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1-bcm91250a' ARCH='mipsel' COMPILER='gcc-4.1'
+setup_mipsel_none_sb1a-bcm91480b: setup_mipsel_none_sb1a-bcm91480b_real
+setup_mipsel_none_sb1a-bcm91480b_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-sb1a-bcm91480b' FLAVOUR='sb1a-bcm91480b' KCONFIG='debian/config/config debian/config/mipsel/config debian/config/mipsel/config.sb1a-bcm91480b' LOCALVERSION_HEADERS='' KERNEL_ARCH='mips' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='mips' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sb1a-bcm91480b' ARCH='mipsel' COMPILER='gcc-4.1'
+setup_mipsel_real:
+setup_powerpc: setup_powerpc_none setup_powerpc_real setup_powerpc_vserver
+setup_powerpc_none: setup_powerpc_none_powerpc setup_powerpc_none_powerpc-smp setup_powerpc_none_powerpc64 setup_powerpc_none_real
+setup_powerpc_none_powerpc: setup_powerpc_none_powerpc_real
+setup_powerpc_none_powerpc-smp: setup_powerpc_none_powerpc-smp_real
+setup_powerpc_none_powerpc-smp_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc-smp' FLAVOUR='powerpc-smp' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc debian/config/powerpc/config.powerpc-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc-smp' ARCH='powerpc' COMPILER='gcc-4.1'
+setup_powerpc_none_powerpc64: setup_powerpc_none_powerpc64_real
+setup_powerpc_none_powerpc64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc64' FLAVOUR='powerpc64' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc64' ARCH='powerpc' COMPILER='gcc-4.1'
+setup_powerpc_none_powerpc_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-powerpc' FLAVOUR='powerpc' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc' LOCALVERSION_HEADERS='' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-powerpc' ARCH='powerpc' COMPILER='gcc-4.1'
+setup_powerpc_none_real:
+setup_powerpc_real:
+setup_powerpc_vserver: setup_powerpc_vserver_powerpc setup_powerpc_vserver_powerpc64 setup_powerpc_vserver_real
+setup_powerpc_vserver_powerpc: setup_powerpc_vserver_powerpc_real
+setup_powerpc_vserver_powerpc64: setup_powerpc_vserver_powerpc64_real
+setup_powerpc_vserver_powerpc64_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-powerpc64' FLAVOUR='powerpc64' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc64 debian/config/featureset-vserver/config debian/config/powerpc/config.powerpc64' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-powerpc64' ARCH='powerpc' COMPILER='gcc-4.1'
+setup_powerpc_vserver_powerpc_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-powerpc' FLAVOUR='powerpc' KCONFIG='debian/config/config debian/config/powerpc/config debian/config/powerpc/config.powerpc debian/config/featureset-vserver/config debian/config/powerpc/config.powerpc-smp' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='powerpc' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-powerpc' ARCH='powerpc' COMPILER='gcc-4.1'
+setup_powerpc_vserver_real:
+setup_s390: setup_s390_none setup_s390_real setup_s390_vserver
+setup_s390_none: setup_s390_none_real setup_s390_none_s390 setup_s390_none_s390-tape setup_s390_none_s390x
+setup_s390_none_real:
+setup_s390_none_s390: setup_s390_none_s390_real
+setup_s390_none_s390-tape: setup_s390_none_s390-tape_real
+setup_s390_none_s390-tape_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-s390' FLAVOUR='s390-tape' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390-tape' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' INITRAMFS='False' KERNEL_HEADER_DIRS='s390' FEATURESET='none' TYPE='plain-s390-tape' LOCALVERSION='-s390-tape' ARCH='s390' COMPILER='gcc-4.1'
+setup_s390_none_s390_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-s390' FLAVOUR='s390' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-s390' ARCH='s390' COMPILER='gcc-4.1'
+setup_s390_none_s390x: setup_s390_none_s390x_real
+setup_s390_none_s390x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-s390x' FLAVOUR='s390x' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390x' LOCALVERSION_HEADERS='' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='plain' LOCALVERSION='-s390x' ARCH='s390' COMPILER='gcc-4.1'
+setup_s390_real:
+setup_s390_vserver: setup_s390_vserver_real setup_s390_vserver_s390x
+setup_s390_vserver_real:
+setup_s390_vserver_s390x: setup_s390_vserver_s390x_real
+setup_s390_vserver_s390x_real::
+	$(MAKE) -f debian/rules.real setup-flavour MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-s390x' FLAVOUR='s390x' KCONFIG='debian/config/config debian/config/s390/config debian/config/s390/config.s390x debian/config/featureset-vserver/config' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='s390' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='plain' LOCALVERSION='-vserver-s390x' ARCH='s390' COMPILER='gcc-4.1'
+setup_sparc: setup_sparc_none setup_sparc_real setup_sparc_vserver
+setup_sparc_none: setup_sparc_none_real setup_sparc_none_sparc64 setup_sparc_none_sparc64-smp
+setup_sparc_none_real:
+setup_sparc_none_sparc64: setup_sparc_none_sparc64_real
+setup_sparc_none_sparc64-smp: setup_sparc_none_sparc64-smp_real
+setup_sparc_none_sparc64-smp_real::
+	$(MAKE) -f debian/rules.real setup-flavour KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-sparc64-smp' FLAVOUR='sparc64-smp' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64-smp' LOCALVERSION_HEADERS='' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sparc64-smp' ARCH='sparc' COMPILER='gcc-4.1'
+setup_sparc_none_sparc64_real::
+	$(MAKE) -f debian/rules.real setup-flavour KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-sparc64' FLAVOUR='sparc64' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64' LOCALVERSION_HEADERS='' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='none' TYPE='kernel-package' LOCALVERSION='-sparc64' ARCH='sparc' COMPILER='gcc-4.1'
+setup_sparc_real:
+setup_sparc_vserver: setup_sparc_vserver_real setup_sparc_vserver_sparc64
+setup_sparc_vserver_real:
+setup_sparc_vserver_sparc64: setup_sparc_vserver_sparc64_real
+setup_sparc_vserver_sparc64_real::
+	$(MAKE) -f debian/rules.real setup-flavour KPKG_SUBARCH='sparc64' MAJOR='2.6' LOCALVERSION_IMAGE='-vserver-sparc64' FLAVOUR='sparc64' KCONFIG='debian/config/config debian/config/sparc/config debian/config/sparc/config.sparc64 debian/config/featureset-vserver/config debian/config/sparc/config.sparc64-smp' LOCALVERSION_HEADERS='-vserver' KERNEL_ARCH='sparc64' UPSTREAMVERSION='2.6.26' MODULES='True' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' ABINAME='-2' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' INITRD_CMD='mkinitramfs-kpkg mkinitrd.yaird' FEATURESET='vserver' TYPE='kernel-package' LOCALVERSION='-vserver-sparc64' ARCH='sparc' COMPILER='gcc-4.1'
+source: source_alpha source_amd64 source_arm source_armel source_hppa source_i386 source_ia64 source_m68k source_mips source_mipsel source_powerpc source_s390 source_sparc
+source_alpha: source_alpha_none source_alpha_real
+source_alpha_none: source_alpha_none_alpha-generic source_alpha_none_alpha-legacy source_alpha_none_alpha-smp source_alpha_none_real
+source_alpha_none_alpha-generic: source_alpha_none_alpha-generic_real
+source_alpha_none_alpha-generic_real:
+source_alpha_none_alpha-legacy: source_alpha_none_alpha-legacy_real
+source_alpha_none_alpha-legacy_real:
+source_alpha_none_alpha-smp: source_alpha_none_alpha-smp_real
+source_alpha_none_alpha-smp_real:
+source_alpha_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='alpha' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='alpha' LIBC_DEV_ARCH='alpha'
+source_alpha_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='alpha' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='alpha'
+source_amd64: source_amd64_none source_amd64_openvz source_amd64_real source_amd64_vserver source_amd64_xen
+source_amd64_none: source_amd64_none_amd64 source_amd64_none_real
+source_amd64_none_amd64: source_amd64_none_amd64_real
+source_amd64_none_amd64_real:
+source_amd64_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='amd64' LIBC_DEV_ARCH='x86'
+source_amd64_openvz: source_amd64_openvz_amd64 source_amd64_openvz_real
+source_amd64_openvz_amd64: source_amd64_openvz_amd64_real
+source_amd64_openvz_amd64_real:
+source_amd64_openvz_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-openvz' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='openvz' ARCH='amd64' LIBC_DEV_ARCH='x86'
+source_amd64_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='amd64'
+source_amd64_vserver: source_amd64_vserver_amd64 source_amd64_vserver_real
+source_amd64_vserver_amd64: source_amd64_vserver_amd64_real
+source_amd64_vserver_amd64_real:
+source_amd64_vserver_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='amd64' LIBC_DEV_ARCH='x86'
+source_amd64_xen: source_amd64_xen_amd64 source_amd64_xen_real
+source_amd64_xen_amd64: source_amd64_xen_amd64_real
+source_amd64_xen_amd64_real:
+source_amd64_xen_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-xen' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='xen' ARCH='amd64' LIBC_DEV_ARCH='x86'
+source_arm: source_arm_none source_arm_real
+source_arm_none: source_arm_none_footbridge source_arm_none_iop32x source_arm_none_ixp4xx source_arm_none_orion5x source_arm_none_real
+source_arm_none_footbridge: source_arm_none_footbridge_real
+source_arm_none_footbridge_real:
+source_arm_none_iop32x: source_arm_none_iop32x_real
+source_arm_none_iop32x_real:
+source_arm_none_ixp4xx: source_arm_none_ixp4xx_real
+source_arm_none_ixp4xx_real:
+source_arm_none_orion5x: source_arm_none_orion5x_real
+source_arm_none_orion5x_real:
+source_arm_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='arm' LIBC_DEV_ARCH='arm'
+source_arm_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='arm'
+source_armel: source_armel_none source_armel_real
+source_armel_none: source_armel_none_iop32x source_armel_none_ixp4xx source_armel_none_orion5x source_armel_none_real source_armel_none_versatile
+source_armel_none_iop32x: source_armel_none_iop32x_real
+source_armel_none_iop32x_real:
+source_armel_none_ixp4xx: source_armel_none_ixp4xx_real
+source_armel_none_ixp4xx_real:
+source_armel_none_orion5x: source_armel_none_orion5x_real
+source_armel_none_orion5x_real:
+source_armel_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='arm' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='armel' LIBC_DEV_ARCH='arm'
+source_armel_none_versatile: source_armel_none_versatile_real
+source_armel_none_versatile_real:
+source_armel_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='arm' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='armel'
+source_hppa: source_hppa_none source_hppa_real
+source_hppa_none: source_hppa_none_parisc source_hppa_none_parisc-smp source_hppa_none_parisc64 source_hppa_none_parisc64-smp source_hppa_none_real
+source_hppa_none_parisc: source_hppa_none_parisc_real
+source_hppa_none_parisc-smp: source_hppa_none_parisc-smp_real
+source_hppa_none_parisc-smp_real:
+source_hppa_none_parisc64: source_hppa_none_parisc64_real
+source_hppa_none_parisc64-smp: source_hppa_none_parisc64-smp_real
+source_hppa_none_parisc64-smp_real:
+source_hppa_none_parisc64_real:
+source_hppa_none_parisc_real:
+source_hppa_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='parisc' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='hppa' LIBC_DEV_ARCH='parisc'
+source_hppa_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='parisc' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='hppa'
+source_i386: source_i386_none source_i386_openvz source_i386_real source_i386_vserver source_i386_xen
+source_i386_none: source_i386_none_486 source_i386_none_686 source_i386_none_686-bigmem source_i386_none_amd64 source_i386_none_real
+source_i386_none_486: source_i386_none_486_real
+source_i386_none_486_real:
+source_i386_none_686: source_i386_none_686_real
+source_i386_none_686-bigmem: source_i386_none_686-bigmem_real
+source_i386_none_686-bigmem_real:
+source_i386_none_686_real:
+source_i386_none_amd64: source_i386_none_amd64_real
+source_i386_none_amd64_real:
+source_i386_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='i386' LIBC_DEV_ARCH='x86'
+source_i386_openvz: source_i386_openvz_686 source_i386_openvz_real
+source_i386_openvz_686: source_i386_openvz_686_real
+source_i386_openvz_686_real:
+source_i386_openvz_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-openvz' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='openvz' ARCH='i386' LIBC_DEV_ARCH='x86'
+source_i386_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='x86' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='i386'
+source_i386_vserver: source_i386_vserver_686 source_i386_vserver_686-bigmem source_i386_vserver_real
+source_i386_vserver_686: source_i386_vserver_686_real
+source_i386_vserver_686-bigmem: source_i386_vserver_686-bigmem_real
+source_i386_vserver_686-bigmem_real:
+source_i386_vserver_686_real:
+source_i386_vserver_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='i386' LIBC_DEV_ARCH='x86'
+source_i386_xen: source_i386_xen_686 source_i386_xen_real
+source_i386_xen_686: source_i386_xen_686_real
+source_i386_xen_686_real:
+source_i386_xen_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-xen' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='x86' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='xen' ARCH='i386' LIBC_DEV_ARCH='x86'
+source_ia64: source_ia64_none source_ia64_real source_ia64_vserver
+source_ia64_none: source_ia64_none_itanium source_ia64_none_mckinley source_ia64_none_real
+source_ia64_none_itanium: source_ia64_none_itanium_real
+source_ia64_none_itanium_real:
+source_ia64_none_mckinley: source_ia64_none_mckinley_real
+source_ia64_none_mckinley_real:
+source_ia64_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='ia64' LIBC_DEV_ARCH='ia64'
+source_ia64_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='ia64' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='ia64'
+source_ia64_vserver: source_ia64_vserver_itanium source_ia64_vserver_mckinley source_ia64_vserver_real
+source_ia64_vserver_itanium: source_ia64_vserver_itanium_real
+source_ia64_vserver_itanium_real:
+source_ia64_vserver_mckinley: source_ia64_vserver_mckinley_real
+source_ia64_vserver_mckinley_real:
+source_ia64_vserver_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='ia64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='ia64' LIBC_DEV_ARCH='ia64'
+source_m68k: source_m68k_none source_m68k_real
+source_m68k_none: source_m68k_none_amiga source_m68k_none_atari source_m68k_none_bvme6000 source_m68k_none_mac source_m68k_none_mvme147 source_m68k_none_mvme16x source_m68k_none_real
+source_m68k_none_amiga: source_m68k_none_amiga_real
+source_m68k_none_amiga_real:
+source_m68k_none_atari: source_m68k_none_atari_real
+source_m68k_none_atari_real:
+source_m68k_none_bvme6000: source_m68k_none_bvme6000_real
+source_m68k_none_bvme6000_real:
+source_m68k_none_mac: source_m68k_none_mac_real
+source_m68k_none_mac_real:
+source_m68k_none_mvme147: source_m68k_none_mvme147_real
+source_m68k_none_mvme147_real:
+source_m68k_none_mvme16x: source_m68k_none_mvme16x_real
+source_m68k_none_mvme16x_real:
+source_m68k_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='m68k' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='m68k' LIBC_DEV_ARCH='m68k'
+source_m68k_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='m68k' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='m68k'
+source_mips: source_mips_none source_mips_real
+source_mips_none: source_mips_none_4kc-malta source_mips_none_5kc-malta source_mips_none_r4k-ip22 source_mips_none_r5k-ip32 source_mips_none_real source_mips_none_sb1-bcm91250a source_mips_none_sb1a-bcm91480b
+source_mips_none_4kc-malta: source_mips_none_4kc-malta_real
+source_mips_none_4kc-malta_real:
+source_mips_none_5kc-malta: source_mips_none_5kc-malta_real
+source_mips_none_5kc-malta_real:
+source_mips_none_r4k-ip22: source_mips_none_r4k-ip22_real
+source_mips_none_r4k-ip22_real:
+source_mips_none_r5k-ip32: source_mips_none_r5k-ip32_real
+source_mips_none_r5k-ip32_real:
+source_mips_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='mips' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='mips' LIBC_DEV_ARCH='mips'
+source_mips_none_sb1-bcm91250a: source_mips_none_sb1-bcm91250a_real
+source_mips_none_sb1-bcm91250a_real:
+source_mips_none_sb1a-bcm91480b: source_mips_none_sb1a-bcm91480b_real
+source_mips_none_sb1a-bcm91480b_real:
+source_mips_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='mips'
+source_mipsel: source_mipsel_none source_mipsel_real
+source_mipsel_none: source_mipsel_none_4kc-malta source_mipsel_none_5kc-malta source_mipsel_none_r5k-cobalt source_mipsel_none_real source_mipsel_none_sb1-bcm91250a source_mipsel_none_sb1a-bcm91480b
+source_mipsel_none_4kc-malta: source_mipsel_none_4kc-malta_real
+source_mipsel_none_4kc-malta_real:
+source_mipsel_none_5kc-malta: source_mipsel_none_5kc-malta_real
+source_mipsel_none_5kc-malta_real:
+source_mipsel_none_r5k-cobalt: source_mipsel_none_r5k-cobalt_real
+source_mipsel_none_r5k-cobalt_real:
+source_mipsel_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='mips' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='mipsel' LIBC_DEV_ARCH='mips'
+source_mipsel_none_sb1-bcm91250a: source_mipsel_none_sb1-bcm91250a_real
+source_mipsel_none_sb1-bcm91250a_real:
+source_mipsel_none_sb1a-bcm91480b: source_mipsel_none_sb1a-bcm91480b_real
+source_mipsel_none_sb1a-bcm91480b_real:
+source_mipsel_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='mips' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='mipsel'
+source_powerpc: source_powerpc_none source_powerpc_real source_powerpc_vserver
+source_powerpc_none: source_powerpc_none_powerpc source_powerpc_none_powerpc-smp source_powerpc_none_powerpc64 source_powerpc_none_real
+source_powerpc_none_powerpc: source_powerpc_none_powerpc_real
+source_powerpc_none_powerpc-smp: source_powerpc_none_powerpc-smp_real
+source_powerpc_none_powerpc-smp_real:
+source_powerpc_none_powerpc64: source_powerpc_none_powerpc64_real
+source_powerpc_none_powerpc64_real:
+source_powerpc_none_powerpc_real:
+source_powerpc_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='powerpc' LIBC_DEV_ARCH='powerpc'
+source_powerpc_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='powerpc' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='powerpc'
+source_powerpc_vserver: source_powerpc_vserver_powerpc source_powerpc_vserver_powerpc64 source_powerpc_vserver_real
+source_powerpc_vserver_powerpc: source_powerpc_vserver_powerpc_real
+source_powerpc_vserver_powerpc64: source_powerpc_vserver_powerpc64_real
+source_powerpc_vserver_powerpc64_real:
+source_powerpc_vserver_powerpc_real:
+source_powerpc_vserver_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='powerpc' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='powerpc' LIBC_DEV_ARCH='powerpc'
+source_s390: source_s390_none source_s390_real source_s390_vserver
+source_s390_none: source_s390_none_real source_s390_none_s390 source_s390_none_s390-tape source_s390_none_s390x
+source_s390_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='s390' LIBC_DEV_ARCH='s390'
+source_s390_none_s390: source_s390_none_s390_real
+source_s390_none_s390-tape: source_s390_none_s390-tape_real
+source_s390_none_s390-tape_real:
+source_s390_none_s390_real:
+source_s390_none_s390x: source_s390_none_s390x_real
+source_s390_none_s390x_real:
+source_s390_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='s390' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='s390'
+source_s390_vserver: source_s390_vserver_real source_s390_vserver_s390x
+source_s390_vserver_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='s390' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='s390' LIBC_DEV_ARCH='s390'
+source_s390_vserver_s390x: source_s390_vserver_s390x_real
+source_s390_vserver_s390x_real:
+source_sparc: source_sparc_none source_sparc_real source_sparc_vserver
+source_sparc_none: source_sparc_none_real source_sparc_none_sparc64 source_sparc_none_sparc64-smp
+source_sparc_none_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='none' ARCH='sparc' LIBC_DEV_ARCH='sparc64'
+source_sparc_none_sparc64: source_sparc_none_sparc64_real
+source_sparc_none_sparc64-smp: source_sparc_none_sparc64-smp_real
+source_sparc_none_sparc64-smp_real:
+source_sparc_none_sparc64_real:
+source_sparc_real::
+	$(MAKE) -f debian/rules.real source-arch MAJOR='2.6' UPSTREAMVERSION='2.6.26' LIBC_DEV_ARCH='sparc64' SOURCEVERSION='2.6.26-15' VERSION='2.6.26' ABINAME='-2' ARCH='sparc'
+source_sparc_vserver: source_sparc_vserver_real source_sparc_vserver_sparc64
+source_sparc_vserver_real::
+	$(MAKE) -f debian/rules.real source-featureset SOURCEVERSION='2.6.26-15' LOCALVERSION_HEADERS='-vserver' MAJOR='2.6' VERSION='2.6.26' KERNEL_HEADER_DIRS='sparc sparc64' ABINAME='-2' UPSTREAMVERSION='2.6.26' FEATURESET='vserver' ARCH='sparc' LIBC_DEV_ARCH='sparc64'
+source_sparc_vserver_sparc64: source_sparc_vserver_sparc64_real
+source_sparc_vserver_sparc64_real:

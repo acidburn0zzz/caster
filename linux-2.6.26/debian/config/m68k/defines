@@ -1,0 +1,49 @@
+[abi]
+# LBD disabled on atari
+ignore-changes: *
+
+[base]
+#compiler: gcc-3.3
+flavours:
+ amiga
+ atari
+ bvme6000
+# hp
+ mac
+ mvme147
+ mvme16x
+# q40
+# sun3
+kernel-arch: m68k
+
+[image]
+initramfs: false
+suggests: vmelilo, fdutils
+
+[amiga_base]
+class: Amiga
+
+[atari_base]
+class: Atari
+
+[bvme6000_base]
+class: BVM BVME4000 and BVME6000
+
+[hp_base]
+class: HP
+
+[mac_base]
+class: Macintosh
+
+[mvme147_base]
+class: Motorola MVME147
+
+[mvme16x_base]
+class: Motorola MVME162/6/7, MVME172/7
+
+[q40_base]
+class: Q40 and Q60
+
+[sun3_base]
+class: sun3
+

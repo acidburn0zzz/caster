@@ -1,0 +1,172 @@
+Witam,
+
+Trochê posiedzia³em i zrobi³em coœ wiêcej. Trochê zmieni³em tamt¹ koncepcjê, poniewa¿ poprzednia by³a strasznie niepraktyczna. Z rozwa¿añ wysz³o, ¿e mo¿na wszystko znacznie uproœciæ. Trochê wybieg³em w przysz³oœæ i zacz¹³em to wdra¿aæ :) W ten sposób po prostu najlepiej mi siê projektuje, gdy widzê jak coœ dzia³a albo i nie. I po oko³o 12h powsta³o coœ takiego:
+
+PROJEKT v.0.2
+
+KLIENT - Tryb odbiorcy
+
+1) Ogólny opis
+
+Aplikacja s³u¿y do pobrania jednego zdefiniowanego obrazu z repozytorium serwera dla dowolnego ci¹g znaków z zakresu [A-Za-z0-9_:.] (np. mac-address).
+
+2) Flow
+
+a) Otwieramy dysku w trybie zapisu oraz otwieramy po³¹czenie z serwerem
+b) Wysy³amy pakiet GetHello do serwera z informacj¹ o sobie
+c) Oczekujemy na odpowiedŸ z serwera o sektorach mo¿liwych do pobrania przez klienta
+d) Wysy³amy pakiet GetData z list¹ sektorów, które nas interesuj¹. W przypadku, gdy lista ta jest pusta zrywamy po³¹czenia i zamykamy aplikacjê
+e) Oczekujemy na pakiety Data. Zapisujemy ca³y sektor, gdy zbierzemy wszystkie dane tworz¹cego go
+f) Oczekujemy na pakiet Finished. Gdy go otrzymamy sprawdzamy, czy wszystkie interesuj¹ce nas dane zosta³y odebrane. Jeœli tak, zamykamy po³¹czenia i koñczymy aplikacjê. W przeciwnym wypadku wracamy do punktu e)
+
+3) Pakiety
+
+- GetHello - przywitanie. W tym pakiecie jest umieszczona informacja o nazwie klienta
+
+  struct GetHello {
+    string DeviceName;
+  };
+
+- GetData - rz¹danie pobrania sektora
+
+  struct GetData {
+    vector<unsigned> SectorList;
+  };
+
+KLIENT - Tryb nadawcy
+
+1) Ogólny opis
+
+Aplikacja s³u¿y do wys³ania aktualnego staniu dysku na serwer i przypisaniu mu dowolnego identyfikatora urz¹dzenia z zakresu [A-Za-z0-9_:.] (np. mac-address). Dziêki temu, ¿e TCP zapewnia na kolejnoœæ danych dane s¹ wysy³ane inkrementacyjnie przy pomocy SendSector, gdy takie dane ju¿ istniej¹ na serwerze lub SendData, gdy jest to nowa porcja danych.
+
+2) Flow
+
+a) Otwieramy dysku w trybie do odczytu oraz po³¹czenie siê z serwerem
+b) Wysy³amy pakiet SendImage z informacj¹ o nazwie wysy³anego obrazu.
+c) Oczekujemy na otrzymanie z serwera pakietu Sectors z informacj¹ o aktualnie dostêpnych sektorach dyskowych.
+d) Odczytujemy kolejne porcje danych (wielkoœæ takiej porcji jest okreœlona przez liniê poleceñ KLIENTa). Obliczamy sumê kontroln¹ takiej porcji danych porównujemy z informacjami z pakietów Sectors. Gdy sektor ju¿ istnieje w repozytorium wysy³amy pakiet SendSector z identyfikatorem sektora, w przeciwnym wypadku SendData z danymi.
+e) Oczekujemy na pakiety Sectors z informacj¹ o nowych dodanych sektorach oraz ich sumach kontrolnych.
+f) Jeœli nie ma jeszcze koñca pliku wracamy do d).
+g) Wysy³amy SendCommit z informacj¹ o koñcu transmisji danych, zakoñczenie po³¹czenia i zamkniêcie aplikacji.
+
+3) Pakiety
+
+- SendImage - rozpoczêcie transmisji nowego obrazu
+
+  struct SendImage {
+    string DeviceName;
+  };
+
+- SendSector - kolejna porcja danych jest opisana przez ten konkretny sektor
+
+  struct SendSector {
+    unsigned SectorId;
+  };
+
+- SendData - wys³anie porcji danych
+
+  struct SendData {
+    vector<byte> SectorData;
+  };
+
+- SendCommit - zakoñczenie transmisji nowego obrazu oraz zapisanie wszystkich zmian w repozytorium serwera
+
+  struct SendCommit {
+  };
+
+SERWER - Tryb nadawcy
+
+1) Ogólny opis
+
+Udostêpnia zdalnie przy pomocy protoko³u TCP repozytorium obrazów. Ca³a transmisja surowych sektorów jak jest to mo¿liwe i zasadne jest wykonywana przy pomocy Multicastów, natomiast ca³a kontrola tej transmisji realizowana jest przez pojedynczy strumieñ TCP.
+
+2) Flow
+
+a) Oczekujemy na nowe po³¹czenie od klienta
+b) Oczekujemy na pakiet GetHello
+c) Odsy³amy Hello z informacj¹ o serwerze, informacj¹ o aktualnym obrazie oraz list¹ sektorów, które mog¹ interesowaæ klienta
+d) Czekamy na GetData
+e) Wysy³amy sektory, które interesuj¹ klienta okreœlone przez GetData
+f) Po transmisji wszystkich sektorów do klienta wysy³amy pakiet Finished i przechodzimy do d)
+
+3) Pakiety
+
+- Hello - informacja zwrotna z serwera. Taka forma logowania
+
+  struct Hello {
+    string ServerVersion;
+    string ImageName;
+    vector<DeviceSector> Sectors;
+  };
+
+  struct DeviceSector {
+    unsigned SectorId;
+    longlong DiskOffset;
+    unsigned SectorSize;
+  };
+
+- Data - pakiet z danymi
+ 
+  struct Data {
+    unsigned SectorId;
+    unsigned short Offset;
+    vector<byte> Data;
+  };
+
+SERWER - Tryb odbiorcy
+
+1) Ogólny opis
+
+Udostêpnia mo¿liwoœæ zdalnego i dynamicznego tworzenia obrazów z istniej¹cych dysków przez sieæ lokaln¹ z u¿yciem protoko³u TCP.
+
+2) Flow
+
+a) Oczekujemy na nowe po³¹czenie od klienta
+b) Oczekujemy na SendImage z informacj¹ jaki obraz ma byæ tworzony
+c) Oczekujemy na dane wysy³ane przy pomocy pakietów SendSector lub SendData. Jeœli dane zosta³y wys³ane przy pomocy SendData, obliczamy sumê kontroln¹ i zapisujemy na dysk. Nastêpnie wysy³ajamy do wszystkich po³¹czonych KLIENTów - w trybie nadawcy informacjê o nowym sektorze.
+d) Oczekujemy na SendCommit. Po otrzymaniu pakietu zapisujemy zmiany i zamykamy po³¹czenie.
+
+3) Pakiety
+
+- Sectors - lista sektorów, które posiada serwer
+
+  struct Sectors {
+    vector<Sector> SectorList;
+  };
+
+  struct Sector {
+    unsigned Id;
+    Hash Hash;
+  };
+
+APLIKACJA
+
+Linia poleceñ aplikacji na chwilê obecn¹ wygl¹da nastêpuj¹co:
+
+ ./caster create <image-name>
+ ./caster add <image-name> <file> <name> <sector-size-in-kB>
+ ./caster show <image-name>
+ ./caster showdevices <image-name>
+ ./caster server <image-name> <port> [address]
+ ./caster client <deviceName> <deviceFile> <port> <address>
+ ./caster send <deviceName> <deviceFile> <port> <address> <sector-size-in-kB>
+
+REALIZACJA
+
+- Zrobi³em mo¿liwoœæ tworzenia obrazów i dodawania ich lokalnie.
+- Mo¿liwoœæ uruchomienia serwera w trybie nadawcy i odbiorcy.
+- Mo¿liwoœæ pobrania i wys³ania obrazu zdalnie na razie tylko ca³a transmisja jest przez strumieñ TCP. Obs³uga Multicastów pojawi siê w przeci¹gu paru najbli¿szych dni.
+
+WRA¯ENIA
+
+Ogólnie wszystko dzia³a tak jak nale¿y. Uda³o mi siê wys³aæ z mojego mini-linuxa obraz na serwer i odtworzyæ go póŸniej na zupe³nie innej maszynie. Oczywiœcie wszystko normalnie dzia³a. Aplikacja serwerowa jest stosunkowo ma³o zasobo¿erna. Najwiêkszym jej problemem jest szybkoœæ odczytu danych z dysku. Transmisja zaczynana jest przez klienta, który siê pod³¹czy. Nie widzê sensu dodawaæ takiej funkcjonalnoœci na serwerze, bo w tym projekcie nie wiem jakby to niby mia³o dzia³aæ. Gdy jest wielu klientów, którzy œci¹gaj¹ te same sektory. Dane lec¹ do wielu strumieni TCP jednoczeœnie i w tym miejscu dodam obs³ugê multicastów.
+
+CO DALEJ
+
+Na pewno dodanie obs³ugi Multicastów.
+Dok³adniejsze testy (moglibyœmy siê umówiæ na któryœ dzieñ jak dokoñczê to co mam teraz).
+Myœlê te¿ nad ma³a zmian¹ serwera, który by³by w stanie obs³ugiwaæ wiele ró¿nych repozytoriów jednoczeœnie.
+Wybór systemu do transmisji dokonywany by³by na interaktywnie z poziomu aplikacji.
+
+Oczywiœcie czekam na uwagi.
+

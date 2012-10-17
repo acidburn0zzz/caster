@@ -1,0 +1,38 @@
+[base]
+flavours:
+ footbridge
+ iop32x
+ ixp4xx
+ orion5x
+kernel-arch: arm
+
+[image]
+suggests: fdutils
+type: kernel-package
+
+[footbridge_image]
+suggests: nwutil
+
+[footbridge_base]
+class: Footbridge
+longclass: Footbridge based (CATS, Netwinder)
+
+[iop32x_base]
+class: IOP32x
+longclass: IOP32x based (Thecus N2100, etc)
+
+[ixp4xx_base]
+class: IXP4xx
+longclass: IXP4xx based (Linksys NSLU2, etc)
+
+[orion5x_base]
+class: Orion
+longclass: Orion 5181, 5182 and 5281 based (QNAP TS-109/TS-209, etc)
+
+[orion5x_image]
+recommends: uboot-mkimage
+
+[versatile_base]
+class: Versatile
+longclass: Versatile (PB, AB, Qemu)
+

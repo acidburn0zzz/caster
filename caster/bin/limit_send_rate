@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+	echo "usage: $0 <interface> <rate>"
+	exit 2
+fi
+
+tc qdisc del root dev $1
+tc qdisc add dev $1 root handle 1:0 htb default 10
+tc class add dev $1 parent 1:0 classid 1:10 htb rate $2 ceil $2

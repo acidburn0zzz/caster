@@ -1,0 +1,17 @@
+[base]
+featuresets:
+ vserver
+flavours:
+ itanium
+ mckinley
+kernel-arch: ia64
+
+[image]
+suggests: elilo, fdutils
+type: kernel-package
+
+[itanium_base]
+class: Itanium
+
+[mckinley_base]
+class: Itanium II

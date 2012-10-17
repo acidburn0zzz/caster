@@ -1,0 +1,90 @@
+##
+## file: arch/x86/Kconfig
+##
+CONFIG_SMP=y
+## choice: Subarchitecture Type
+# CONFIG_X86_PC is not set
+# CONFIG_X86_ELAN is not set
+# CONFIG_X86_VOYAGER is not set
+# CONFIG_X86_NUMAQ is not set
+# CONFIG_X86_SUMMIT is not set
+# CONFIG_X86_BIGSMP is not set
+# CONFIG_X86_VISWS is not set
+CONFIG_X86_GENERICARCH=y
+# CONFIG_X86_ES7000 is not set
+# CONFIG_X86_RDC321X is not set
+# CONFIG_X86_VSMP is not set
+## end choice
+CONFIG_NR_CPUS=32
+CONFIG_X86_MCE=y
+CONFIG_X86_MCE_NONFATAL=m
+CONFIG_X86_MCE_P4THERMAL=y
+## choice: High Memory Support
+# CONFIG_NOHIGHMEM is not set
+# CONFIG_HIGHMEM4G is not set
+CONFIG_HIGHMEM64G=y
+## end choice
+CONFIG_X86_PAE=y
+# CONFIG_HIGHPTE is not set
+# CONFIG_MATH_EMULATION is not set
+# CONFIG_EISA is not set
+# CONFIG_MCA is not set
+
+##
+## file: arch/x86/Kconfig.cpu
+##
+## choice: Processor family
+# CONFIG_M386 is not set
+# CONFIG_M486 is not set
+CONFIG_M686=y
+# CONFIG_MK7 is not set
+## end choice
+# CONFIG_X86_GENERIC is not set
+CONFIG_X86_PPRO_FENCE=y
+
+##
+## file: drivers/char/Kconfig
+##
+# CONFIG_DIGIEPCA is not set
+# CONFIG_MOXA_INTELLIO is not set
+# CONFIG_SX is not set
+# CONFIG_RIO is not set
+# CONFIG_STALLION is not set
+# CONFIG_ISTALLION is not set
+
+##
+## file: drivers/cpufreq/Kconfig
+##
+# CONFIG_CPU_FREQ_STAT_DETAILS is not set
+
+##
+## file: drivers/i2c/busses/Kconfig
+##
+# CONFIG_I2C_ELEKTOR is not set
+CONFIG_I2C_STUB=m
+
+##
+## file: drivers/isdn/i4l/Kconfig
+##
+# CONFIG_ISDN_DRV_LOOP is not set
+
+##
+## file: drivers/net/Kconfig
+##
+# CONFIG_NI5010 is not set
+
+##
+## file: drivers/net/hamradio/Kconfig
+##
+# CONFIG_DMASCC is not set
+
+##
+## file: drivers/pci/hotplug/Kconfig
+##
+# CONFIG_HOTPLUG_PCI_COMPAQ_NVRAM is not set
+
+##
+## file: lib/Kconfig.debug
+##
+# CONFIG_DEBUG_HIGHMEM is not set
+

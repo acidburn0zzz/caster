@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# clear screen
+echo
+echo "---- Welcome to caster! ----"
+echo
+
+# default settings
+export MACADDRESS=`ifconfig eth0 | grep HWaddr | awk '{print $5}'`
+export CASTERNAME=$MACADDRESS
+export CASTERHOST=`ip route | grep default | awk '{print $3}'`
+export CASTERPORT="3000"
+export CASTERSECTOR="1M"
+export CASTERFILE=""
+
+# add multicast route
+ip route add 224.0.0.0/4 dev eth0
+ifconfig eth0 promisc
+
+# find hdd device
+if [ "$CASTERFILE" == "" ]; then
+	for i in /dev/hd? /dev/sd?; do
+		if [ -r $i ]; then
+			echo "Found root device on $i..."
+			export CASTERFILE=$i
+			break;
+		fi
+	done
+fi
+
+# parse command line
+for i in $(cat /proc/cmdline); do
+	case $i in
+		CASTER*)
+			export $i
+			;;
+			
+		init=*)
+			echo "Found $i!"
+			exec $init
+			;;
+	esac
+done     
+
+# evaluate CASTERNAME
+case $CASTERPERSONALIZE in
+mac)
+	export CASTERNAME=$MACADDRESS
+	;;
+
+hostname)
+	export CASTERNAME=`hostname`
+	;;
+esac
+
+# find root-device
+if [ "$CASTERHOST" != "" ] && [ "$CASTERPORT" != "" ] && [ "$CASTERNAME" != "" ]; then
+	# check root-device
+	if [ "$CASTERFILE" == "" ]
+	then
+		echo "* No root device found!"
+		break 1
+	fi
+
+	# start caster-client
+	if [ "$CASTERSEND" != "" ]; then
+		caster send
+		echo ""
+		echo "- status = $?"
+	else
+		ifconfig eth0 promisc
+		caster client
+		echo ""
+		echo "- status = $?"
+	fi
+else
+	echo "- no caster configuration specified."
+fi
+
+# reboot system
+echo -n "- system will restart (after key press)"
+read
+for i in `seq 1 3`
+do
+	echo -n "."
+	sleep 1
+done
+reboot
+

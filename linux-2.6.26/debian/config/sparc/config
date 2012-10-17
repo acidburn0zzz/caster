@@ -1,0 +1,413 @@
+##
+## file: arch/sparc64/Kconfig
+##
+CONFIG_SECCOMP=y
+CONFIG_SUN_LDOMS=y
+CONFIG_PCI=y
+CONFIG_SUN_OPENPROMFS=m
+
+##
+## file: drivers/block/Kconfig
+##
+CONFIG_BLK_DEV_FD=y
+# CONFIG_BLK_CPQ_DA is not set
+# CONFIG_BLK_CPQ_CISS_DA is not set
+# CONFIG_BLK_DEV_DAC960 is not set
+# CONFIG_BLK_DEV_UMEM is not set
+CONFIG_SUNVDC=m
+
+##
+## file: drivers/char/Kconfig
+##
+CONFIG_VT=y
+CONFIG_VT_CONSOLE=y
+# CONFIG_SERIAL_NONSTANDARD is not set
+CONFIG_PRINTER=m
+# CONFIG_LP_CONSOLE is not set
+# CONFIG_PPDEV is not set
+# CONFIG_DTLK is not set
+# CONFIG_R3964 is not set
+# CONFIG_APPLICOM is not set
+
+##
+## file: drivers/char/ipmi/Kconfig
+##
+# CONFIG_IPMI_HANDLER is not set
+
+##
+## file: drivers/hwmon/Kconfig
+##
+# CONFIG_SENSORS_F71805F is not set
+
+##
+## file: drivers/input/Kconfig
+##
+CONFIG_INPUT=y
+CONFIG_INPUT_MOUSEDEV=y
+CONFIG_INPUT_MOUSEDEV_PSAUX=y
+CONFIG_INPUT_MOUSEDEV_SCREEN_X=1024
+CONFIG_INPUT_MOUSEDEV_SCREEN_Y=768
+# CONFIG_INPUT_JOYDEV is not set
+CONFIG_INPUT_EVDEV=m
+
+##
+## file: drivers/input/gameport/Kconfig
+##
+# CONFIG_GAMEPORT is not set
+
+##
+## file: drivers/input/joystick/Kconfig
+##
+# CONFIG_INPUT_JOYSTICK is not set
+
+##
+## file: drivers/input/keyboard/Kconfig
+##
+CONFIG_INPUT_KEYBOARD=y
+CONFIG_KEYBOARD_ATKBD=y
+CONFIG_KEYBOARD_SUNKBD=y
+CONFIG_KEYBOARD_LKKBD=m
+# CONFIG_KEYBOARD_XTKBD is not set
+# CONFIG_KEYBOARD_NEWTON is not set
+
+##
+## file: drivers/input/misc/Kconfig
+##
+CONFIG_INPUT_MISC=y
+CONFIG_INPUT_SPARCSPKR=m
+# CONFIG_INPUT_UINPUT is not set
+
+##
+## file: drivers/input/mouse/Kconfig
+##
+CONFIG_INPUT_MOUSE=y
+# CONFIG_MOUSE_VSXXXAA is not set
+
+##
+## file: drivers/input/serio/Kconfig
+##
+CONFIG_SERIO=y
+CONFIG_SERIO_I8042=y
+# CONFIG_SERIO_SERPORT is not set
+# CONFIG_SERIO_PARKBD is not set
+# CONFIG_SERIO_PCIPS2 is not set
+CONFIG_SERIO_LIBPS2=y
+# CONFIG_SERIO_RAW is not set
+
+##
+## file: drivers/input/touchscreen/Kconfig
+##
+# CONFIG_INPUT_TOUCHSCREEN is not set
+
+##
+## file: drivers/isdn/Kconfig
+##
+# CONFIG_ISDN is not set
+
+##
+## file: drivers/message/i2o/Kconfig
+##
+# CONFIG_I2O is not set
+
+##
+## file: drivers/mmc/Kconfig
+##
+# CONFIG_MMC is not set
+
+##
+## file: drivers/mtd/Kconfig
+##
+# CONFIG_MTD is not set
+
+##
+## file: drivers/net/Kconfig
+##
+CONFIG_DUMMY=m
+CONFIG_SUNLANCE=m
+CONFIG_HAPPYMEAL=m
+CONFIG_SUNBMAC=m
+CONFIG_SUNQE=m
+CONFIG_SUNVNET=m
+# CONFIG_HP100 is not set
+# CONFIG_HAMACHI is not set
+# CONFIG_R8169 is not set
+CONFIG_BNX2=m
+# CONFIG_HIPPI is not set
+CONFIG_PLIP=m
+CONFIG_NET_FC=y
+CONFIG_NETCONSOLE=m
+# CONFIG_NETPOLL_TRAP is not set
+
+##
+## file: drivers/net/appletalk/Kconfig
+##
+CONFIG_ATALK=m
+# CONFIG_DEV_APPLETALK is not set
+
+##
+## file: drivers/net/arcnet/Kconfig
+##
+# CONFIG_ARCNET is not set
+
+##
+## file: drivers/net/tokenring/Kconfig
+##
+# CONFIG_TR is not set
+
+##
+## file: drivers/net/wan/Kconfig
+##
+# CONFIG_WAN is not set
+
+##
+## file: drivers/parport/Kconfig
+##
+CONFIG_PARPORT_SUNBPP=m
+
+##
+## file: drivers/sbus/char/Kconfig
+##
+CONFIG_SUN_OPENPROMIO=y
+CONFIG_SUN_MOSTEK_RTC=y
+# CONFIG_SUN_BPP is not set
+
+##
+## file: drivers/scsi/Kconfig
+##
+CONFIG_SCSI_ARCMSR=m
+# CONFIG_SCSI_FUTURE_DOMAIN is not set
+# CONFIG_SCSI_IPS is not set
+# CONFIG_SCSI_INIA100 is not set
+CONFIG_SCSI_QLOGIC_1280=m
+CONFIG_SCSI_QLOGICPTI=m
+# CONFIG_SCSI_DC390T is not set
+# CONFIG_SCSI_DEBUG is not set
+CONFIG_SCSI_SUNESP=m
+
+##
+## file: drivers/serial/Kconfig
+##
+CONFIG_SERIAL_SUNZILOG=y
+CONFIG_SERIAL_SUNZILOG_CONSOLE=y
+CONFIG_SERIAL_JSM=m
+
+##
+## file: drivers/telephony/Kconfig
+##
+# CONFIG_PHONE is not set
+
+##
+## file: drivers/video/Kconfig
+##
+CONFIG_FB=y
+# CONFIG_FB_TILEBLITTING is not set
+# CONFIG_FB_CIRRUS is not set
+# CONFIG_FB_ASILIANT is not set
+# CONFIG_FB_IMSTT is not set
+CONFIG_FB_SBUS=y
+CONFIG_FB_CG6=y
+# CONFIG_FB_P9100 is not set
+# CONFIG_FB_S1D13XXX is not set
+CONFIG_FB_XVR500=y
+CONFIG_FB_XVR2500=y
+# CONFIG_FB_NVIDIA is not set
+# CONFIG_FB_RIVA is not set
+# CONFIG_FB_MATROX is not set
+# CONFIG_FB_SAVAGE is not set
+# CONFIG_FB_SIS is not set
+# CONFIG_FB_NEOMAGIC is not set
+# CONFIG_FB_KYRO is not set
+# CONFIG_FB_3DFX is not set
+# CONFIG_FB_VOODOO1 is not set
+# CONFIG_FB_TRIDENT is not set
+# CONFIG_FB_VIRTUAL is not set
+
+##
+## file: drivers/video/backlight/Kconfig
+##
+# CONFIG_BACKLIGHT_LCD_SUPPORT is not set
+
+##
+## file: drivers/video/console/Kconfig
+##
+CONFIG_PROM_CONSOLE=y
+CONFIG_FRAMEBUFFER_CONSOLE=y
+# CONFIG_FONTS is not set
+CONFIG_FONT_SUN8x16=y
+# CONFIG_FONT_SUN12x22 is not set
+
+##
+## file: drivers/video/logo/Kconfig
+##
+CONFIG_LOGO=y
+# CONFIG_LOGO_LINUX_MONO is not set
+# CONFIG_LOGO_LINUX_VGA16 is not set
+
+##
+## file: drivers/w1/Kconfig
+##
+# CONFIG_W1 is not set
+
+##
+## file: drivers/watchdog/Kconfig
+##
+# CONFIG_WATCHDOG is not set
+
+##
+## file: fs/Kconfig
+##
+CONFIG_EXT2_FS=y
+
+##
+## file: fs/partitions/Kconfig
+##
+# CONFIG_ACORN_PARTITION is not set
+# CONFIG_OSF_PARTITION is not set
+# CONFIG_AMIGA_PARTITION is not set
+# CONFIG_ATARI_PARTITION is not set
+# CONFIG_MAC_PARTITION is not set
+# CONFIG_BSD_DISKLABEL is not set
+# CONFIG_MINIX_SUBPARTITION is not set
+# CONFIG_SOLARIS_X86_PARTITION is not set
+# CONFIG_UNIXWARE_DISKLABEL is not set
+# CONFIG_LDM_PARTITION is not set
+# CONFIG_SGI_PARTITION is not set
+# CONFIG_ULTRIX_PARTITION is not set
+CONFIG_SUN_PARTITION=y
+# CONFIG_EFI_PARTITION is not set
+
+##
+## file: mm/Kconfig
+##
+## choice: Memory model
+# CONFIG_DISCONTIGMEM_MANUAL is not set
+## end choice
+
+##
+## file: net/atm/Kconfig
+##
+# CONFIG_ATM is not set
+
+##
+## file: net/ax25/Kconfig
+##
+# CONFIG_HAMRADIO is not set
+
+##
+## file: net/bluetooth/Kconfig
+##
+# CONFIG_BT is not set
+
+##
+## file: net/decnet/Kconfig
+##
+CONFIG_DECNET=m
+CONFIG_DECNET_ROUTER=y
+
+##
+## file: net/econet/Kconfig
+##
+# CONFIG_ECONET is not set
+
+##
+## file: net/ipv4/Kconfig
+##
+CONFIG_IP_PNP=y
+# CONFIG_IP_PNP_DHCP is not set
+# CONFIG_IP_PNP_BOOTP is not set
+CONFIG_IP_PNP_RARP=y
+#. TODO
+# CONFIG_NET_IPGRE is not set
+#. TODO
+CONFIG_ARPD=y
+
+##
+## file: net/ipx/Kconfig
+##
+CONFIG_IPX=m
+# CONFIG_IPX_INTERN is not set
+
+##
+## file: net/irda/Kconfig
+##
+# CONFIG_IRDA is not set
+
+##
+## file: net/lapb/Kconfig
+##
+# CONFIG_LAPB is not set
+
+##
+## file: net/llc/Kconfig
+##
+CONFIG_LLC2=m
+
+##
+## file: net/wanrouter/Kconfig
+##
+# CONFIG_WAN_ROUTER is not set
+
+##
+## file: net/x25/Kconfig
+##
+# CONFIG_X25 is not set
+
+##
+## file: sound/core/Kconfig
+##
+CONFIG_SND_MIXER_OSS=m
+CONFIG_SND_PCM_OSS=m
+# CONFIG_SND_VERBOSE_PRINTK is not set
+# CONFIG_SND_DEBUG is not set
+
+##
+## file: sound/drivers/Kconfig
+##
+# CONFIG_SND_DUMMY is not set
+# CONFIG_SND_MTPAV is not set
+# CONFIG_SND_SERIAL_U16550 is not set
+# CONFIG_SND_MPU401 is not set
+
+##
+## file: sound/pci/Kconfig
+##
+# CONFIG_SND_ATIIXP is not set
+# CONFIG_SND_ATIIXP_MODEM is not set
+# CONFIG_SND_AU8810 is not set
+# CONFIG_SND_AU8820 is not set
+# CONFIG_SND_AU8830 is not set
+# CONFIG_SND_AZT3328 is not set
+# CONFIG_SND_BT87X is not set
+# CONFIG_SND_CA0106 is not set
+# CONFIG_SND_CS4281 is not set
+# CONFIG_SND_CS46XX is not set
+# CONFIG_SND_EMU10K1X is not set
+# CONFIG_SND_ES1938 is not set
+# CONFIG_SND_ES1968 is not set
+# CONFIG_SND_FM801 is not set
+# CONFIG_SND_HDA_INTEL is not set
+# CONFIG_SND_HDSP is not set
+# CONFIG_SND_ICE1712 is not set
+# CONFIG_SND_ICE1724 is not set
+# CONFIG_SND_INTEL8X0 is not set
+# CONFIG_SND_INTEL8X0M is not set
+# CONFIG_SND_KORG1212 is not set
+# CONFIG_SND_MIXART is not set
+# CONFIG_SND_NM256 is not set
+# CONFIG_SND_RME32 is not set
+# CONFIG_SND_RME96 is not set
+# CONFIG_SND_RME9652 is not set
+# CONFIG_SND_SONICVIBES is not set
+# CONFIG_SND_TRIDENT is not set
+# CONFIG_SND_VIA82XX is not set
+# CONFIG_SND_VIA82XX_MODEM is not set
+# CONFIG_SND_VX222 is not set
+# CONFIG_SND_YMFPCI is not set
+
+##
+## file: sound/sparc/Kconfig
+##
+CONFIG_SND_SUN_AMD7930=m
+CONFIG_SND_SUN_CS4231=m
+CONFIG_SND_SUN_DBRI=m
+

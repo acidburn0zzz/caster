@@ -1,0 +1,54 @@
+[abi]
+abiname: 2
+
+[base]
+arches:
+ alpha
+ amd64
+ arm
+ armel
+ hppa
+ i386
+ ia64
+ m68k
+ mips
+ mipsel
+ powerpc
+ s390
+ sparc
+compiler: gcc-4.1
+featuresets:
+ none
+ openvz
+ vserver
+ xen
+
+[featureset-openvz_base]
+enabled: true
+
+[featureset-vserver_base]
+enabled: true
+
+[image]
+desc-long-part-xen: This kernel also runs on a Xen hypervisor.
+ It supports only unpriviledged (domU) operation.
+initramfs-generators: initramfs-tools yaird initramfs-fallback
+type: plain
+
+[xen]
+versions:
+ 3.2-1
+
+[commands-image-initramfs-generators]
+initramfs-tools: mkinitramfs-kpkg
+yaird: mkinitrd.yaird
+
+[relations]
+gcc-3.3: gcc-3.3
+gcc-4.0: gcc-4.0
+gcc-4.1: gcc-4.1
+initramfs-fallback: linux-initramfs-tool
+initramfs-tools: initramfs-tools (>= 0.55)
+util-vserver: util-vserver (>= 0.30.215)
+yaird: yaird (>= 0.0.13)
+

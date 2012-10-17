@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+	echo "usage: $0 <interface> <rate>"
+	exit 2
+fi
+
+tc qdisc del dev $1 ingress
+tc qdisc add dev $1 ingress handle ffff:
+tc filter add dev $1 parent ffff: protocol ip u32 match ip src 0.0.0.0/0 police rate $2 burst 200k drop flowid :1

@@ -1,0 +1,8 @@
+[base]
+flavours:
+ 686
+ 686-bigmem
+
+[image]
+recommends: util-vserver, libc6-i686
+

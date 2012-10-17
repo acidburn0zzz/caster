@@ -1,0 +1,10 @@
+##
+## file: arch/mips/Kconfig
+##
+CONFIG_SECCOMP=y
+
+##
+## file: drivers/net/Kconfig
+##
+# CONFIG_NIU is not set
+

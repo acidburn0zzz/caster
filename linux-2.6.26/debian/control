@@ -1,0 +1,1777 @@
+Source: linux-2.6
+Section: devel
+Priority: optional
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Uploaders: Bastian Blank <waldi@debian.org>, Frederik Schüler <fs@debian.org>, maximilian attems <maks@debian.org>
+Standards-Version: 3.7.3.0
+Build-Depends: debhelper (>= 4.1.0), module-init-tools, dpkg-dev (>= 1.10.23), sparc-utils [sparc], kernel-package (>= 10.063), python, gcc-4.1 [alpha amd64 arm armel hppa i386 ia64 m68k mips mipsel powerpc s390 sparc], binutils-hppa64 [hppa], gcc-4.1-hppa64 [hppa]
+Build-Depends-Indep: bzip2, findutils (>= 4.2.12), python-central, xmlto
+XS-Python-Version: current
+
+Package: linux-source-2.6.26
+Architecture: all
+Section: devel
+Priority: optional
+Provides: linux-source, linux-source-2.6
+Depends: binutils, bzip2
+Recommends: libc6-dev | libc-dev, gcc, make
+Suggests: libncurses-dev | ncurses-dev, kernel-package, libqt3-mt-dev
+Description: Linux kernel source for version 2.6.26 with Debian patches
+ This package provides source code for the Linux kernel version 2.6.26.
+ This source closely tracks official Linux kernel releases.  Debian's
+ modifications to that source consist of security fixes, bug fixes, and
+ features that have already been (or we believe will be) accepted by the
+ upstream maintainers.
+ .
+ If you wish to use this package to create a custom Linux kernel, then it
+ is suggested that you investigate the package kernel-package, which has
+ been designed to ease the task of creating kernel image packages.
+
+Package: linux-doc-2.6.26
+Architecture: all
+Section: doc
+Priority: optional
+Provides: linux-doc-2.6
+Description: Linux kernel specific documentation for version 2.6.26
+ This package provides the various README files and HTML documentation for
+ the Linux kernel version 2.6.26.  Plenty of information, including the
+ descriptions of various kernel subsystems, filesystems, driver-specific
+ notes and the like.  Consult the file
+ /usr/share/doc/linux-doc-2.6.26/Documentation/00-INDEX for the detailed
+ description of the contents.
+
+Package: linux-manual-2.6.26
+Architecture: all
+Section: doc
+Priority: optional
+Provides: linux-manual, kernel-manual-2.6
+Replaces: linux-manual, kernel-manual-2.6
+Conflicts: linux-manual, kernel-manual-2.6
+Description: Linux kernel API manual pages for version 2.6.26
+ This package provides the Kernel Hacker's Guide in the form of manual
+ pages, describing the kernel API functions.  They are installed into
+ section 9 of the manual.
+ .
+ As the files containing manual pages for different kernel versions are
+ installed in the same location, only one linux-manual package may be
+ installed at a time.  The linux-doc package containing the documentation
+ in other formats is free from such restriction.
+
+Package: linux-patch-debian-2.6.26
+Architecture: all
+Section: devel
+Priority: optional
+Depends: bzip2, linux-support-2.6.26-2
+Suggests: linux-source-2.6.26
+Description: Debian patches to version 2.6.26 of the Linux kernel
+ This package includes the patches used to produce the prepackaged
+ linux-source-2.6.26 package, as well as architecture-specific patches.
+ .
+ Note that these patches do NOT apply against a pristine Linux 2.6.26
+ kernel but only against the kernel tarball linux-2.6_2.6.26.orig.tar.gz
+ from the Debian archive.
+
+Package: linux-tree-2.6.26
+Architecture: all
+Section: devel
+Priority: optional
+Provides: linux-tree-2.6.26-15, linux-tree-2.6.26-14, linux-tree-2.6.26-13lenny2, linux-tree-2.6.26-13lenny1, linux-tree-2.6.26-13, linux-tree-2.6.26-12, linux-tree-2.6.26-11, linux-tree-2.6.26-10, linux-tree-2.6.26-9, linux-tree-2.6.26-8, linux-tree-2.6.26-7, linux-tree-2.6.26-6, linux-tree-2.6.26-5, linux-tree-2.6.26-4, linux-tree-2.6.26-3, linux-tree-2.6.26-2, linux-tree-2.6.26-1
+Depends: linux-patch-debian-2.6.26 (= 2.6.26-15), linux-source-2.6.26 (= 2.6.26-15) | linux-source-2.6.26 (= 2.6.26-14) | linux-source-2.6.26 (= 2.6.26-13lenny2) | linux-source-2.6.26 (= 2.6.26-13lenny1) | linux-source-2.6.26 (= 2.6.26-13) | linux-source-2.6.26 (= 2.6.26-12) | linux-source-2.6.26 (= 2.6.26-11) | linux-source-2.6.26 (= 2.6.26-10) | linux-source-2.6.26 (= 2.6.26-9) | linux-source-2.6.26 (= 2.6.26-8) | linux-source-2.6.26 (= 2.6.26-7) | linux-source-2.6.26 (= 2.6.26-6) | linux-source-2.6.26 (= 2.6.26-5) | linux-source-2.6.26 (= 2.6.26-4) | linux-source-2.6.26 (= 2.6.26-3) | linux-source-2.6.26 (= 2.6.26-2) | linux-source-2.6.26 (= 2.6.26-1)
+Description: Linux kernel source tree for building Debian kernel images
+ This meta package is used as a build dependency of Debian linux-image
+ packages to prevent a version discrepancy between the linux-image and
+ corresponding linux-sources packages in the fast-moving unstable archive.
+ The package's dependency relations are structured so that a linux-image
+ package's build dependencies can always be satisfied, even if the
+ linux-source package that had been used to compile the image has been
+ superseeded by a newer Debian revision since the last build.
+ .
+ The package provides a list of virtual packages, corresponding to Debian
+ revisions of a linux-source package.  The Debian linux-patch contains the
+ information needed to roll back the current linux-source to any of the
+ revisions identified by the provided virtual packages.  Therefore, the
+ linux-tree package ensures the availability of the Linux kernel source
+ tree corresponding to each of the virtual packages listed.
+ .
+ The package serves no purpose outside of the Debian build and archive
+ infrastructure.
+
+Package: linux-support-2.6.26-2
+Architecture: all
+Section: devel
+Priority: optional
+Depends: ${python:Depends}
+Description: Support files for Linux 2.6.26
+ This package provides support files for the Linux kernel build.
+XB-Python-Version: ${python:Versions}
+
+Package: linux-libc-dev
+Architecture: alpha amd64 arm armel hppa i386 ia64 m68k mips mipsel powerpc s390 sparc
+Section: devel
+Priority: optional
+Provides: linux-kernel-headers
+Replaces: linux-kernel-headers
+Conflicts: linux-kernel-headers
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These
+ headers are used by the installed headers for GNU glibc and other system
+ libraries.
+
+Package: linux-headers-2.6.26-2-all
+Architecture: alpha amd64 arm armel hppa i386 ia64 m68k mips mipsel powerpc s390 sparc
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-all-${kernel:Arch} (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-headers-2.6.26-2-all-alpha
+Architecture: alpha
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-alpha-generic (= ${binary:Version}), linux-headers-2.6.26-2-alpha-smp (= ${binary:Version}), linux-headers-2.6.26-2-alpha-legacy (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-headers-2.6.26-2-common
+Architecture: alpha amd64 arm armel hppa i386 ia64 m68k mips mipsel powerpc s390 sparc
+Section: devel
+Priority: optional
+Description: Common header files for Linux 2.6.26-2
+ This package provides the architecture-specific common kernel header files
+ for Linux kernel version 2.6.26-2, generally used for building out-of-tree
+ kernel modules.  To obtain a complete set of headers you also need to
+ install the linux-headers-2.6.26-2-(flavour) package, matching the flavour
+ of the kernel you intend the build for.
+
+Package: linux-image-2.6.26-2-alpha-generic
+Architecture: alpha
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-alpha-generic
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, aboot, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Alpha
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Alpha machines.
+
+Package: linux-headers-2.6.26-2-alpha-generic
+Architecture: alpha
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-alpha-generic
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-alpha-generic, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-alpha-generic, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-alpha-generic package.
+
+Package: linux-image-2.6.26-2-alpha-smp
+Architecture: alpha
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-alpha-smp
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, aboot, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Alpha SMP
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Alpha SMP machines.
+
+Package: linux-headers-2.6.26-2-alpha-smp
+Architecture: alpha
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-alpha-smp
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-alpha-smp, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-alpha-smp, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-alpha-smp package.
+
+Package: linux-image-2.6.26-2-alpha-legacy
+Architecture: alpha
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-alpha-legacy
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, aboot, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Alpha Legacy
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Alpha Legacy machines.
+
+Package: linux-headers-2.6.26-2-alpha-legacy
+Architecture: alpha
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-alpha-legacy
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-alpha-legacy, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-alpha-legacy, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-alpha-legacy package.
+
+Package: linux-headers-2.6.26-2-all-amd64
+Architecture: amd64
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-amd64 (= ${binary:Version}), linux-headers-2.6.26-2-openvz-amd64 (= ${binary:Version}), linux-headers-2.6.26-2-vserver-amd64 (= ${binary:Version}), linux-headers-2.6.26-2-xen-amd64 (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-amd64
+Architecture: amd64 i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-amd64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on AMD64
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on all 64bit single- and multiprocessor AMD and Intel
+ machines.
+
+Package: linux-headers-2.6.26-2-amd64
+Architecture: amd64 i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-amd64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-amd64, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-amd64, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-amd64 package.
+
+Package: linux-headers-2.6.26-2-common-openvz
+Architecture: amd64 i386
+Section: devel
+Priority: optional
+Description: Common header files for Linux 2.6.26-2-openvz
+ This package provides the architecture-specific common kernel header files
+ for Linux kernel version 2.6.26-2-openvz, generally used for building
+ out-of-tree kernel modules.  To obtain a complete set of headers you also
+ need to install the linux-headers-2.6.26-2-(flavour) package, matching the
+ flavour of the kernel you intend the build for.
+
+Package: linux-image-2.6.26-2-openvz-amd64
+Architecture: amd64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-openvz-amd64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, vzctl, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on AMD64, OpenVZ support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on all 64bit single- and multiprocessor AMD and Intel
+ machines.
+ .
+ This kernel includes support for OpenVZ container-based virtualization.
+
+Package: linux-headers-2.6.26-2-openvz-amd64
+Architecture: amd64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-openvz (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-openvz-amd64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-openvz-amd64, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-openvz-amd64, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-openvz-amd64 package.
+
+Package: linux-headers-2.6.26-2-common-vserver
+Architecture: amd64 i386 ia64 powerpc s390 sparc
+Section: devel
+Priority: optional
+Description: Common header files for Linux 2.6.26-2-vserver
+ This package provides the architecture-specific common kernel header files
+ for Linux kernel version 2.6.26-2-vserver, generally used for building
+ out-of-tree kernel modules.  To obtain a complete set of headers you also
+ need to install the linux-headers-2.6.26-2-(flavour) package, matching the
+ flavour of the kernel you intend the build for.
+
+Package: linux-image-2.6.26-2-vserver-amd64
+Architecture: amd64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-amd64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on AMD64, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on all 64bit single- and multiprocessor AMD and Intel
+ machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-amd64
+Architecture: amd64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-amd64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-amd64, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-amd64, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-amd64 package.
+
+Package: linux-headers-2.6.26-2-common-xen
+Architecture: amd64 i386
+Section: devel
+Priority: optional
+Description: Common header files for Linux 2.6.26-2-xen
+ This package provides the architecture-specific common kernel header files
+ for Linux kernel version 2.6.26-2-xen, generally used for building
+ out-of-tree kernel modules.  To obtain a complete set of headers you also
+ need to install the linux-headers-2.6.26-2-(flavour) package, matching the
+ flavour of the kernel you intend the build for.
+
+Package: linux-image-2.6.26-2-xen-amd64
+Architecture: amd64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6
+Depends: linux-modules-2.6.26-2-xen-amd64 (= ${binary:Version}), initramfs-tools (>= 0.55)
+Suggests: linux-doc-2.6.26, grub
+Conflicts: initramfs-tools (<< 0.55)
+Description: Linux 2.6.26 image on AMD64, oldstyle Xen support
+ This package provides the binary image for Linux kernel 2.6.26 on all
+ 64bit single- and multiprocessor AMD and Intel machines.
+ .
+ This kernel only runs on a Xen hypervisor.  It supports both priviledged
+ (dom0) and unpriviledged (domU) operation.
+
+Package: linux-modules-2.6.26-2-xen-amd64
+Architecture: amd64
+Section: admin
+Priority: optional
+Depends: module-init-tools
+Description: Linux 2.6.26 modules on AMD64
+ This package provides pre-built loadable modules for Linux kernel 2.6.26
+ on all 64bit single- and multiprocessor AMD and Intel machines.
+
+Package: linux-headers-2.6.26-2-xen-amd64
+Architecture: amd64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-xen (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-xen-amd64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-xen-amd64, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-xen-amd64, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-xen-amd64 package.
+
+Package: xen-linux-system-2.6.26-2-xen-amd64
+Architecture: amd64
+Section: admin
+Priority: extra
+Depends: linux-image-2.6.26-2-xen-amd64 (= ${binary:Version}), xen-hypervisor-3.2-1-amd64
+Description: XEN system with Linux 2.6.26 image on AMD64
+ This package depends on the binary Linux image and hypervisors.
+
+Package: linux-headers-2.6.26-2-all-arm
+Architecture: arm
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-footbridge (= ${binary:Version}), linux-headers-2.6.26-2-iop32x (= ${binary:Version}), linux-headers-2.6.26-2-ixp4xx (= ${binary:Version}), linux-headers-2.6.26-2-orion5x (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-footbridge
+Architecture: arm
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-footbridge
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, nwutil
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Footbridge
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Footbridge based (CATS, Netwinder) machines.
+
+Package: linux-headers-2.6.26-2-footbridge
+Architecture: arm
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-footbridge
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-footbridge, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-footbridge, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-footbridge package.
+
+Package: linux-image-2.6.26-2-iop32x
+Architecture: arm armel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-iop32x
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on IOP32x
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on IOP32x based (Thecus N2100, etc) machines.
+
+Package: linux-headers-2.6.26-2-iop32x
+Architecture: arm armel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-iop32x
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-iop32x, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-iop32x, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-iop32x package.
+
+Package: linux-image-2.6.26-2-ixp4xx
+Architecture: arm armel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-ixp4xx
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on IXP4xx
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on IXP4xx based (Linksys NSLU2, etc) machines.
+
+Package: linux-headers-2.6.26-2-ixp4xx
+Architecture: arm armel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-ixp4xx
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-ixp4xx, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-ixp4xx, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-ixp4xx package.
+
+Package: linux-image-2.6.26-2-orion5x
+Architecture: arm armel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-orion5x
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: uboot-mkimage
+Suggests: linux-doc-2.6.26, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Orion
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Orion 5181, 5182 and 5281 based (QNAP
+ TS-109/TS-209, etc) machines.
+
+Package: linux-headers-2.6.26-2-orion5x
+Architecture: arm armel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-orion5x
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-orion5x, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-orion5x, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-orion5x package.
+
+Package: linux-headers-2.6.26-2-all-armel
+Architecture: armel
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-iop32x (= ${binary:Version}), linux-headers-2.6.26-2-ixp4xx (= ${binary:Version}), linux-headers-2.6.26-2-orion5x (= ${binary:Version}), linux-headers-2.6.26-2-versatile (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-versatile
+Architecture: armel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-versatile
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Versatile
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Versatile (PB, AB, Qemu) machines.
+
+Package: linux-headers-2.6.26-2-versatile
+Architecture: armel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-versatile
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-versatile, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-versatile, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-versatile package.
+
+Package: linux-headers-2.6.26-2-all-hppa
+Architecture: hppa
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-parisc (= ${binary:Version}), linux-headers-2.6.26-2-parisc-smp (= ${binary:Version}), linux-headers-2.6.26-2-parisc64 (= ${binary:Version}), linux-headers-2.6.26-2-parisc64-smp (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-parisc
+Architecture: hppa
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-parisc
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, palo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on 32-bit PA-RISC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on 32-bit PA-RISC machines.
+
+Package: linux-headers-2.6.26-2-parisc
+Architecture: hppa
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1, binutils-hppa64, gcc-4.1-hppa64
+Description: Header files for Linux 2.6.26-2-parisc
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-parisc, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-parisc, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-parisc package.
+
+Package: linux-image-2.6.26-2-parisc-smp
+Architecture: hppa
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-parisc-smp
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, palo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on multiprocessor 32-bit PA-RISC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on multiprocessor 32-bit PA-RISC machines.
+
+Package: linux-headers-2.6.26-2-parisc-smp
+Architecture: hppa
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1, binutils-hppa64, gcc-4.1-hppa64
+Description: Header files for Linux 2.6.26-2-parisc-smp
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-parisc-smp, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-parisc-smp, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-parisc-smp package.
+
+Package: linux-image-2.6.26-2-parisc64
+Architecture: hppa
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-parisc64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, palo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on 64-bit PA-RISC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on 64-bit PA-RISC machines.
+
+Package: linux-headers-2.6.26-2-parisc64
+Architecture: hppa
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1, binutils-hppa64, gcc-4.1-hppa64
+Description: Header files for Linux 2.6.26-2-parisc64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-parisc64, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-parisc64, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-parisc64 package.
+
+Package: linux-image-2.6.26-2-parisc64-smp
+Architecture: hppa
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-parisc64-smp
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, palo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on multiprocessor 64-bit PA-RISC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on multiprocessor 64-bit PA-RISC machines.
+
+Package: linux-headers-2.6.26-2-parisc64-smp
+Architecture: hppa
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1, binutils-hppa64, gcc-4.1-hppa64
+Description: Header files for Linux 2.6.26-2-parisc64-smp
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-parisc64-smp, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-parisc64-smp, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-parisc64-smp package.
+
+Package: linux-headers-2.6.26-2-all-i386
+Architecture: i386
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-486 (= ${binary:Version}), linux-headers-2.6.26-2-686 (= ${binary:Version}), linux-headers-2.6.26-2-686-bigmem (= ${binary:Version}), linux-headers-2.6.26-2-amd64 (= ${binary:Version}), linux-headers-2.6.26-2-openvz-686 (= ${binary:Version}), linux-headers-2.6.26-2-vserver-686 (= ${binary:Version}), linux-headers-2.6.26-2-vserver-686-bigmem (= ${binary:Version}), linux-headers-2.6.26-2-xen-686 (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-486
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-486
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on x86
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on x86 and compatible machines.
+
+Package: linux-headers-2.6.26-2-486
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-486
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-486, generally used for building out-of-tree kernel
+ modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-486, and can be used for building modules
+ that load into the kernel provided by the linux-image-2.6.26-2-486
+ package.
+
+Package: linux-image-2.6.26-2-686
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-686
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: libc6-i686
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on PPro/Celeron/PII/PIII/P4
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Pentium Pro/Celeron/Pentium II/Pentium III/Pentium
+ 4 machines.
+
+Package: linux-headers-2.6.26-2-686
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-686
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-686, generally used for building out-of-tree kernel
+ modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-686, and can be used for building modules
+ that load into the kernel provided by the linux-image-2.6.26-2-686
+ package.
+
+Package: linux-image-2.6.26-2-686-bigmem
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-686-bigmem
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: libc6-i686
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on PPro/Celeron/PII/PIII/P4
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Pentium Pro/Celeron/Pentium II/Pentium III/Pentium
+ 4 with 4-64G RAM machines.
+ .
+ This kernel also runs on a Xen hypervisor.  It supports only unpriviledged
+ (domU) operation.
+
+Package: linux-headers-2.6.26-2-686-bigmem
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-686-bigmem
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-686-bigmem, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-686-bigmem, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-686-bigmem package.
+
+Package: linux-image-2.6.26-2-openvz-686
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-openvz-686
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, vzctl, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: libc6-i686
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on PPro/Celeron/PII/PIII/P4, OpenVZ support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Pentium Pro/Celeron/Pentium II/Pentium III/Pentium
+ 4 machines.
+ .
+ This kernel includes support for OpenVZ container-based virtualization.
+ .
+ This kernel also runs on a Xen hypervisor.  It supports only unpriviledged
+ (domU) operation.
+
+Package: linux-headers-2.6.26-2-openvz-686
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-openvz (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-openvz-686
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-openvz-686, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-openvz-686, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-openvz-686 package.
+
+Package: linux-image-2.6.26-2-vserver-686
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-686
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: libc6-i686
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on PPro/Celeron/PII/PIII/P4, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Pentium Pro/Celeron/Pentium II/Pentium III/Pentium
+ 4 machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-686
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-686
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-686, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-686, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-686 package.
+
+Package: linux-image-2.6.26-2-vserver-686-bigmem
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-686-bigmem
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: libc6-i686
+Suggests: linux-doc-2.6.26, grub | lilo
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on PPro/Celeron/PII/PIII/P4, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Pentium Pro/Celeron/Pentium II/Pentium III/Pentium
+ 4 with 4-64G RAM machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+ .
+ This kernel also runs on a Xen hypervisor.  It supports only unpriviledged
+ (domU) operation.
+
+Package: linux-headers-2.6.26-2-vserver-686-bigmem
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-686-bigmem
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-686-bigmem, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-686-bigmem, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-686-bigmem package.
+
+Package: linux-image-2.6.26-2-xen-686
+Architecture: i386
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6
+Depends: linux-modules-2.6.26-2-xen-686 (= ${binary:Version}), initramfs-tools (>= 0.55)
+Recommends: libc6-xen
+Suggests: linux-doc-2.6.26, grub
+Conflicts: initramfs-tools (<< 0.55)
+Description: Linux 2.6.26 image on i686, oldstyle Xen support
+ This package provides the binary image for Linux kernel 2.6.26 on i686 and
+ compatible machines.
+ .
+ This kernel only runs on a Xen hypervisor.  It supports both priviledged
+ (dom0) and unpriviledged (domU) operation.
+
+Package: linux-modules-2.6.26-2-xen-686
+Architecture: i386
+Section: admin
+Priority: optional
+Depends: module-init-tools
+Description: Linux 2.6.26 modules on i686
+ This package provides pre-built loadable modules for Linux kernel 2.6.26
+ on i686 and compatible machines.
+
+Package: linux-headers-2.6.26-2-xen-686
+Architecture: i386
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-xen (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-xen-686
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-xen-686, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-xen-686, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-xen-686 package.
+
+Package: xen-linux-system-2.6.26-2-xen-686
+Architecture: i386
+Section: admin
+Priority: extra
+Depends: linux-image-2.6.26-2-xen-686 (= ${binary:Version}), xen-hypervisor-3.2-1-i386 | xen-hypervisor-3.2-1-amd64
+Description: XEN system with Linux 2.6.26 image on i686
+ This package depends on the binary Linux image and hypervisors.
+
+Package: linux-headers-2.6.26-2-all-ia64
+Architecture: ia64
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-itanium (= ${binary:Version}), linux-headers-2.6.26-2-mckinley (= ${binary:Version}), linux-headers-2.6.26-2-vserver-itanium (= ${binary:Version}), linux-headers-2.6.26-2-vserver-mckinley (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-itanium
+Architecture: ia64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-itanium
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, elilo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Itanium
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Itanium machines.
+
+Package: linux-headers-2.6.26-2-itanium
+Architecture: ia64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-itanium
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-itanium, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-itanium, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-itanium package.
+
+Package: linux-image-2.6.26-2-mckinley
+Architecture: ia64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-mckinley
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, elilo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Itanium II
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Itanium II machines.
+
+Package: linux-headers-2.6.26-2-mckinley
+Architecture: ia64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-mckinley
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-mckinley, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-mckinley, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-mckinley package.
+
+Package: linux-image-2.6.26-2-vserver-itanium
+Architecture: ia64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-itanium
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver
+Suggests: linux-doc-2.6.26, elilo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Itanium, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Itanium machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-itanium
+Architecture: ia64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-itanium
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-itanium, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-itanium, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-itanium package.
+
+Package: linux-image-2.6.26-2-vserver-mckinley
+Architecture: ia64
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-mckinley
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver
+Suggests: linux-doc-2.6.26, elilo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on Itanium II, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Itanium II machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-mckinley
+Architecture: ia64
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-mckinley
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-mckinley, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-mckinley, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-mckinley package.
+
+Package: linux-headers-2.6.26-2-all-m68k
+Architecture: m68k
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-amiga (= ${binary:Version}), linux-headers-2.6.26-2-atari (= ${binary:Version}), linux-headers-2.6.26-2-bvme6000 (= ${binary:Version}), linux-headers-2.6.26-2-mac (= ${binary:Version}), linux-headers-2.6.26-2-mvme147 (= ${binary:Version}), linux-headers-2.6.26-2-mvme16x (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-amiga
+Architecture: m68k
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-amiga
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26, vmelilo, fdutils
+Description: Linux 2.6.26 image on Amiga
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Amiga machines.
+
+Package: linux-headers-2.6.26-2-amiga
+Architecture: m68k
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-amiga
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-amiga, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-amiga, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-amiga package.
+
+Package: linux-image-2.6.26-2-atari
+Architecture: m68k
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-atari
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26, vmelilo, fdutils
+Description: Linux 2.6.26 image on Atari
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Atari machines.
+
+Package: linux-headers-2.6.26-2-atari
+Architecture: m68k
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-atari
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-atari, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-atari, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-atari package.
+
+Package: linux-image-2.6.26-2-bvme6000
+Architecture: m68k
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-bvme6000
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26, vmelilo, fdutils
+Description: Linux 2.6.26 image on BVM BVME4000 and BVME6000
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on BVM BVME4000 and BVME6000 machines.
+
+Package: linux-headers-2.6.26-2-bvme6000
+Architecture: m68k
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-bvme6000
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-bvme6000, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-bvme6000, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-bvme6000 package.
+
+Package: linux-image-2.6.26-2-mac
+Architecture: m68k
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-mac
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26, vmelilo, fdutils
+Description: Linux 2.6.26 image on Macintosh
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Macintosh machines.
+
+Package: linux-headers-2.6.26-2-mac
+Architecture: m68k
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-mac
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-mac, generally used for building out-of-tree kernel
+ modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-mac, and can be used for building modules
+ that load into the kernel provided by the linux-image-2.6.26-2-mac
+ package.
+
+Package: linux-image-2.6.26-2-mvme147
+Architecture: m68k
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-mvme147
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26, vmelilo, fdutils
+Description: Linux 2.6.26 image on Motorola MVME147
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Motorola MVME147 machines.
+
+Package: linux-headers-2.6.26-2-mvme147
+Architecture: m68k
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-mvme147
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-mvme147, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-mvme147, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-mvme147 package.
+
+Package: linux-image-2.6.26-2-mvme16x
+Architecture: m68k
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-mvme16x
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26, vmelilo, fdutils
+Description: Linux 2.6.26 image on Motorola MVME162/6/7, MVME172/7
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Motorola MVME162/6/7, MVME172/7 machines.
+
+Package: linux-headers-2.6.26-2-mvme16x
+Architecture: m68k
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-mvme16x
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-mvme16x, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-mvme16x, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-mvme16x package.
+
+Package: linux-headers-2.6.26-2-all-mips
+Architecture: mips
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-r4k-ip22 (= ${binary:Version}), linux-headers-2.6.26-2-r5k-ip32 (= ${binary:Version}), linux-headers-2.6.26-2-sb1-bcm91250a (= ${binary:Version}), linux-headers-2.6.26-2-sb1a-bcm91480b (= ${binary:Version}), linux-headers-2.6.26-2-4kc-malta (= ${binary:Version}), linux-headers-2.6.26-2-5kc-malta (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-r4k-ip22
+Architecture: mips
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-r4k-ip22
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on SGI IP22
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on SGI IP22 (Indy, Indigo2) machines.
+
+Package: linux-headers-2.6.26-2-r4k-ip22
+Architecture: mips
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-r4k-ip22
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-r4k-ip22, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-r4k-ip22, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-r4k-ip22 package.
+
+Package: linux-image-2.6.26-2-r5k-ip32
+Architecture: mips
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-r5k-ip32
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on SGI IP32
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on SGI IP32 (O2) machines.
+
+Package: linux-headers-2.6.26-2-r5k-ip32
+Architecture: mips
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-r5k-ip32
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-r5k-ip32, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-r5k-ip32, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-r5k-ip32 package.
+
+Package: linux-image-2.6.26-2-sb1-bcm91250a
+Architecture: mips mipsel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-sb1-bcm91250a
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on BCM91250A
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Broadcom BCM91250A (aka SWARM) machines.
+
+Package: linux-headers-2.6.26-2-sb1-bcm91250a
+Architecture: mips mipsel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-sb1-bcm91250a
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-sb1-bcm91250a, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-sb1-bcm91250a, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-sb1-bcm91250a package.
+
+Package: linux-image-2.6.26-2-sb1a-bcm91480b
+Architecture: mips mipsel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-sb1a-bcm91480b
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on BCM91480B
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Broadcom BCM91480B (aka BigSur) machines.
+
+Package: linux-headers-2.6.26-2-sb1a-bcm91480b
+Architecture: mips mipsel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-sb1a-bcm91480b
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-sb1a-bcm91480b, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-sb1a-bcm91480b, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-sb1a-bcm91480b package.
+
+Package: linux-image-2.6.26-2-4kc-malta
+Architecture: mips mipsel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-4kc-malta
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on MIPS Malta
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on MIPS Malta board machines.
+
+Package: linux-headers-2.6.26-2-4kc-malta
+Architecture: mips mipsel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-4kc-malta
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-4kc-malta, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-4kc-malta, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-4kc-malta package.
+
+Package: linux-image-2.6.26-2-5kc-malta
+Architecture: mips mipsel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-5kc-malta
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on MIPS Malta (64-bit)
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on MIPS Malta board (64-bit) machines.
+
+Package: linux-headers-2.6.26-2-5kc-malta
+Architecture: mips mipsel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-5kc-malta
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-5kc-malta, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-5kc-malta, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-5kc-malta package.
+
+Package: linux-headers-2.6.26-2-all-mipsel
+Architecture: mipsel
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-r5k-cobalt (= ${binary:Version}), linux-headers-2.6.26-2-sb1-bcm91250a (= ${binary:Version}), linux-headers-2.6.26-2-sb1a-bcm91480b (= ${binary:Version}), linux-headers-2.6.26-2-4kc-malta (= ${binary:Version}), linux-headers-2.6.26-2-5kc-malta (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-r5k-cobalt
+Architecture: mipsel
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-r5k-cobalt
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools
+Suggests: linux-doc-2.6.26
+Description: Linux 2.6.26 image on Cobalt
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on Cobalt (Qube, RaQ, Qube2, RaQ2) machines.
+
+Package: linux-headers-2.6.26-2-r5k-cobalt
+Architecture: mipsel
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-r5k-cobalt
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-r5k-cobalt, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-r5k-cobalt, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-r5k-cobalt package.
+
+Package: linux-headers-2.6.26-2-all-powerpc
+Architecture: powerpc
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-powerpc (= ${binary:Version}), linux-headers-2.6.26-2-powerpc-smp (= ${binary:Version}), linux-headers-2.6.26-2-powerpc64 (= ${binary:Version}), linux-headers-2.6.26-2-vserver-powerpc (= ${binary:Version}), linux-headers-2.6.26-2-vserver-powerpc64 (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-powerpc
+Architecture: powerpc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-powerpc
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, mkvmlinuz
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on uniprocessor 32-bit PowerPC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on uniprocessor 32-bit PowerPC machines.
+
+Package: linux-headers-2.6.26-2-powerpc
+Architecture: powerpc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-powerpc
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-powerpc, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-powerpc, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-powerpc package.
+
+Package: linux-image-2.6.26-2-powerpc-smp
+Architecture: powerpc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-powerpc-smp
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, mkvmlinuz
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on multiprocessor 32-bit PowerPC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on multiprocessor 32-bit PowerPC machines.
+
+Package: linux-headers-2.6.26-2-powerpc-smp
+Architecture: powerpc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-powerpc-smp
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-powerpc-smp, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-powerpc-smp, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-powerpc-smp package.
+
+Package: linux-image-2.6.26-2-powerpc64
+Architecture: powerpc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-powerpc64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, mkvmlinuz
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on 64-bit PowerPC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on 64-bit PowerPC machines.
+
+Package: linux-headers-2.6.26-2-powerpc64
+Architecture: powerpc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-powerpc64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-powerpc64, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-powerpc64, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-powerpc64 package.
+
+Package: linux-image-2.6.26-2-vserver-powerpc
+Architecture: powerpc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-powerpc
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver
+Suggests: linux-doc-2.6.26, mkvmlinuz
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on uniprocessor 32-bit PowerPC, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on uniprocessor 32-bit PowerPC machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-powerpc
+Architecture: powerpc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-powerpc
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-powerpc, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-powerpc, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-powerpc package.
+
+Package: linux-image-2.6.26-2-vserver-powerpc64
+Architecture: powerpc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-powerpc64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver
+Suggests: linux-doc-2.6.26, mkvmlinuz
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on 64-bit PowerPC, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on 64-bit PowerPC machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-powerpc64
+Architecture: powerpc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-powerpc64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-powerpc64, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-powerpc64, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-powerpc64 package.
+
+Package: linux-headers-2.6.26-2-all-s390
+Architecture: s390
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-s390 (= ${binary:Version}), linux-headers-2.6.26-2-s390x (= ${binary:Version}), linux-headers-2.6.26-2-vserver-s390x (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-s390
+Architecture: s390
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-s390
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, s390-tools
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on IBM S/390
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on IBM S/390 machines.
+ .
+ This kernel has support to IPL (boot) from a VM reader or DASD device.
+
+Package: linux-headers-2.6.26-2-s390
+Architecture: s390
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-s390
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-s390, generally used for building out-of-tree kernel
+ modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-s390, and can be used for building modules
+ that load into the kernel provided by the linux-image-2.6.26-2-s390
+ package.
+
+Package: linux-image-2.6.26-2-s390-tape
+Architecture: s390
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6
+Suggests: linux-doc-2.6.26, s390-tools
+Description: Linux 2.6.26 image on IBM S/390, IPL from tape
+ This package provides the binary image for Linux kernel 2.6.26 on IBM
+ S/390 machines.
+ .
+ This kernel has support to IPL (boot) from a tape.
+
+Package: linux-image-2.6.26-2-s390x
+Architecture: s390
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-s390x
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, s390-tools
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on IBM zSeries
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on IBM zSeries machines.
+ .
+ This kernel has support to IPL (boot) from a VM reader or DASD device.
+
+Package: linux-headers-2.6.26-2-s390x
+Architecture: s390
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-s390x
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-s390x, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-s390x, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-s390x package.
+
+Package: linux-image-2.6.26-2-vserver-s390x
+Architecture: s390
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-s390x
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver
+Suggests: linux-doc-2.6.26, s390-tools
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on IBM zSeries, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on IBM zSeries machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+ .
+ This kernel has support to IPL (boot) from a VM reader or DASD device.
+
+Package: linux-headers-2.6.26-2-vserver-s390x
+Architecture: s390
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-s390x
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-s390x, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-s390x, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-s390x package.
+
+Package: linux-headers-2.6.26-2-all-sparc
+Architecture: sparc
+Section: devel
+Priority: optional
+Depends: linux-headers-2.6.26-2-sparc64 (= ${binary:Version}), linux-headers-2.6.26-2-sparc64-smp (= ${binary:Version}), linux-headers-2.6.26-2-vserver-sparc64 (= ${binary:Version})
+Description: All header files for Linux 2.6.26
+ This package depends against all architecture-specific kernel header files
+ for Linux kernel version 2.6.26, generally used for building out-of-tree
+ kernel modules.
+
+Package: linux-image-2.6.26-2-sparc64
+Architecture: sparc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-sparc64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, silo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on uniprocessor 64-bit UltraSPARC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on uniprocessor 64-bit UltraSPARC machines.
+
+Package: linux-headers-2.6.26-2-sparc64
+Architecture: sparc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-sparc64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-sparc64, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-sparc64, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-sparc64 package.
+
+Package: linux-image-2.6.26-2-sparc64-smp
+Architecture: sparc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-sparc64-smp
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Suggests: linux-doc-2.6.26, silo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on multiprocessor 64-bit UltraSPARC
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on multiprocessor 64-bit UltraSPARC machines.
+
+Package: linux-headers-2.6.26-2-sparc64-smp
+Architecture: sparc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-sparc64-smp
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-sparc64-smp, generally used for building out-of-tree
+ kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-sparc64-smp, and can be used for building
+ modules that load into the kernel provided by the
+ linux-image-2.6.26-2-sparc64-smp package.
+
+Package: linux-image-2.6.26-2-vserver-sparc64
+Architecture: sparc
+Section: admin
+Priority: optional
+Provides: linux-image, linux-image-2.6, linux-modules-2.6.26-2-vserver-sparc64
+Pre-Depends: debconf | debconf-2.0
+Depends: module-init-tools, initramfs-tools (>= 0.55) | yaird (>= 0.0.13) | linux-initramfs-tool
+Recommends: util-vserver, libc6-sparc64
+Suggests: linux-doc-2.6.26, silo, fdutils
+Conflicts: initramfs-tools (<< 0.55), yaird (<< 0.0.13)
+Description: Linux 2.6.26 image on uniprocessor 64-bit UltraSPARC, Linux-VServer support
+ This package provides the binary image and pre-built loadable modules for
+ Linux kernel 2.6.26 on uniprocessor 64-bit UltraSPARC machines.
+ .
+ This kernel includes support for Linux-VServer virtualization.
+
+Package: linux-headers-2.6.26-2-vserver-sparc64
+Architecture: sparc
+Section: devel
+Priority: optional
+Provides: linux-headers, linux-headers-2.6
+Depends: linux-headers-2.6.26-2-common-vserver (= ${binary:Version}), linux-kbuild-2.6.26, gcc-4.1
+Description: Header files for Linux 2.6.26-2-vserver-sparc64
+ This package provides the architecture-specific kernel header files for
+ Linux kernel 2.6.26-2-vserver-sparc64, generally used for building
+ out-of-tree kernel modules.  These files are going to be installed into
+ /usr/src/linux-headers-2.6.26-2-vserver-sparc64, and can be used for
+ building modules that load into the kernel provided by the
+ linux-image-2.6.26-2-vserver-sparc64 package.
+
